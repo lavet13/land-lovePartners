@@ -64,12 +64,33 @@ body {
 .header__text {
   font-size: 1.4rem;
   color: $color-blue-light-1;
+
+  &--adjust {
+    width: 50%;
+  }
+
+  &--purple {
+    color: $color-blue-light-2;
+  }
 }
 
 .header__big-text {
   font-size: 2.4rem;
   font-weight: 700;
   text-transform: uppercase;
+
+  &--adjust {
+    width: 50%;
+  }
+}
+
+.header__medium-text {
+  font-size: 2rem;
+  font-weight: 700;
+
+  &--purple {
+    color: $color-blue-light-2;
+  }
 }
 
 .color--white {

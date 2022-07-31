@@ -20,6 +20,12 @@ ORDER: Base + typography > general layout + grid > page layout > components
 
 // basic stuff mobile first 
 @mixin respond($breakpoint) {
+    @if $breakpoint == bp-small {
+        @media only screen and (min-width: 24.3125em) {
+            @content;
+        }
+    }
+
     @if $breakpoint == bp-medium {
         @media only screen and (min-width: 37.5em) { // 600px and above
             @content;

@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'Averta CY';
+    src: url("fonts/Averta Cyrillic Extra Thin.otf") format('opentype');
+
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'Averta CY';
+    src: url("fonts/Averta Cyrillic Thin.otf") format('opentype');
+
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: 'Averta CY';
+    src: url("fonts/Averta Cyrillic Light.otf") format('opentype');
+
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Averta CY';
+    src: url("fonts/Averta-Cyrillic-Regular.otf") format('opentype');
+
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Averta CY';
+    src: url("fonts/Averta Cyrillic SemiBold.otf") format('opentype');
+
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Averta CY';
+    src: url("fonts/Averta-Cyrillic-Bold.otf") format('opentype');
+
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Averta CY';
+    src: url("fonts/Averta Cyrillic ExtraBold.otf") format('opentype');
+
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'Averta CY';
+    src: url("fonts/Averta-Cyrillic-Black.otf") format('opentype');
+
+    font-weight: 900;
+}
+
+body {
+    font-family: $font-primary;
+    font-weight: 400;
+    line-height: 1.6;
+    color: $color-black;
+}
+
+.header__text {
+  font-size: 1.4rem;
+  color: $color-blue-light-1;
+}
+
+.header__big-text {
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.color--white {
+  color: $color-white;
+}
+
+.color--purple {
+  color: $color-purple;
+}
+
+// https://stackoverflow.com/questions/3245141/using-otf-fonts-on-web-browsers

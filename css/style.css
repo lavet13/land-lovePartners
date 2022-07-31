@@ -1,0 +1,181 @@
+/*
+0 - 600px:     Phone
+600 - 900px:   Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :   Big desktop
+
+
+$breakpoint argument choices:
+- phone (bp-small)
+- tab-port (bp-medium)
+- tab-land (bp-large)
+- big-desktop (bp-desktop)
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1 em = 16px
+*/
+/*
+//basic stuff for desktop first
+@mixin respond($breakpoint) {
+
+    @if $breakpoint ==bp-large {
+
+        // 1200px
+        @media only screen and (max-width: 75em) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==bp-medium {
+
+        // 900px
+        @media only screen and (max-width: 56.25em) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==bp-small {
+
+        // 600px
+        @media only screen and (max-width: 37.5em) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==bp-desktop {
+
+        // 1800px
+        @media only screen and (min-width: 112.5em) {
+            @content;
+        }
+    }
+}
+
+*/
+::selection {
+  background-color: #000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+@font-face {
+  font-family: "Averta CY";
+  src: url("fonts/Averta Cyrillic Extra Thin.otf") format("opentype");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Averta CY";
+  src: url("fonts/Averta Cyrillic Thin.otf") format("opentype");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Averta CY";
+  src: url("fonts/Averta Cyrillic Light.otf") format("opentype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Averta CY";
+  src: url("fonts/Averta-Cyrillic-Regular.otf") format("opentype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Averta CY";
+  src: url("fonts/Averta Cyrillic SemiBold.otf") format("opentype");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Averta CY";
+  src: url("fonts/Averta-Cyrillic-Bold.otf") format("opentype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Averta CY";
+  src: url("fonts/Averta Cyrillic ExtraBold.otf") format("opentype");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "Averta CY";
+  src: url("fonts/Averta-Cyrillic-Black.otf") format("opentype");
+  font-weight: 900;
+}
+body {
+  font-family: "Averta CY";
+  font-weight: 400;
+  line-height: 1.6;
+  color: #000;
+}
+
+.header__text {
+  font-size: 1.4rem;
+  color: #626CFF;
+}
+
+.header__big-text {
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.color--white {
+  color: #fff;
+}
+
+.color--purple {
+  color: #FF3471;
+}
+
+.container {
+  width: 100%;
+}
+
+.header {
+  display: grid;
+  grid-template-rows: 1fr min-content;
+  grid-row-gap: 1.5rem;
+  align-items: start;
+  height: 80%;
+}
+.header__background {
+  background: url("../img/header/BG.png") 70%/cover no-repeat;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 80vh);
+  height: 100vh;
+  padding: 2rem;
+}
+.header__figure-img {
+  display: block;
+  width: 100%;
+}
+.header__img {
+  display: block;
+  object-fit: contain;
+}
+.header__logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FF3471;
+}
+.header__top {
+  display: grid;
+  grid-template-columns: min-content min-content;
+  grid-column-gap: 1rem;
+  justify-items: start;
+  align-items: center;
+}
+
+/*# sourceMappingURL=style.css.map */

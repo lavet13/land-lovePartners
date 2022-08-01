@@ -66,8 +66,17 @@ body {
   color: $color-blue-light-1;
 
   &--adjust {
-    width: 50%;
+    max-width: 20rem;
+
+    @include respond(bp-small) {
+      max-width: none;
+    }
+
+    &-lh {
+      line-height: 1;
+    }
   }
+
 
   &--purple {
     color: $color-blue-light-2;
@@ -80,8 +89,16 @@ body {
   text-transform: uppercase;
 
   &--adjust {
-    width: 50%;
+    @include respond(bp-small) {
+      width: 35rem;
+    }
   }
+}
+
+.potential__medium-bottom {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: $color-blue-light-3;
 }
 
 .header__medium-text {
@@ -91,14 +108,37 @@ body {
   &--purple {
     color: $color-blue-light-2;
   }
+
+  &--adjust {
+    max-width: 25rem;
+
+    @include respond(bp-small) {
+      max-width: 30rem;
+    }
+
+    &-lh {
+      line-height: 1;
+    }
+  }
 }
 
 .color--white {
   color: $color-white;
+
+  &--adjust {
+    @include respond(bp-small) {
+    }
+  }
 }
 
 .color--purple {
+  display: block;
   color: $color-purple;
+
+  &--adjust {
+    @include respond(bp-small) {
+    }
+  }
 }
 
 // https://stackoverflow.com/questions/3245141/using-otf-fonts-on-web-browsers

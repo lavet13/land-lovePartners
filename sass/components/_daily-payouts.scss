@@ -3,6 +3,7 @@
   grid-auto-rows: min-content;
   grid-row-gap: 3rem;
   justify-items: center;
+  justify-content: center;
 
   padding: 2rem;
   padding-top: 5rem;
@@ -19,6 +20,7 @@
 
     border-radius: 20px;
     border: 1px solid $color-white;
+    max-width: 46rem;
   }
 
   &__figure-img {

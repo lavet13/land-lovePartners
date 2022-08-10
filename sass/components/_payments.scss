@@ -1,0 +1,27 @@
+.payments {
+  display: grid;
+  grid-auto-rows: min-content;
+  grid-row-gap: 2rem;
+  justify-content: center;
+  justify-items: center;
+
+  @include respond(bp-smaller) {
+    grid-row-gap: 2.5rem;
+  }
+
+  &__figure-box {
+    display: grid;
+    grid-template-columns: min-content 13rem;
+    grid-gap: 1rem;
+    align-items: center;
+
+    @include respond(bp-smaller) {
+      grid-template-columns: min-content max-content;
+    }
+  }
+
+  &__img {
+    display: block;
+    object-fit: contain;
+  }
+}

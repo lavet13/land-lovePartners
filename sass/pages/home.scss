@@ -7,5 +7,17 @@
 }
 
 .daily-payouts__background {
-  margin-bottom: 4rem;
+  margin-bottom: 12rem;
+
+  @include respond(bp-smaller) {
+    margin-bottom: 13.5rem;
+  }
+}
+
+.payments-indent {
+  margin-bottom: 8rem;
+}
+
+.support-indent {
+  margin-bottom: 6rem;
 }

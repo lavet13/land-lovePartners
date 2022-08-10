@@ -27,3 +27,34 @@
     flex-shrink: 0;
   }
 }
+
+.support__button {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: $font-primary;
+  letter-spacing: 0.03em;
+  color: $color-white;
+  cursor: pointer;
+
+  border: 0;
+  border-radius: 33px;
+  background: $color-purple;
+  padding: 1rem 2rem;
+
+  @include respond(bp-smaller) {
+    font-size: 1.45rem;
+
+    padding: 1.5rem 2.5rem;
+  }
+
+  @include respond(bp-small) {
+    font-size: 1.6rem;
+
+    padding: 2rem 3rem;
+  }
+}

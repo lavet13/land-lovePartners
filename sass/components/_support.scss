@@ -20,4 +20,10 @@
       grid-template-columns: min-content max-content;
     }
   }
+
+  &__img {
+    display: block;
+    max-width: 100%;
+    object-fit: contain;
+  }
 }

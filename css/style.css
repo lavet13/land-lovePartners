@@ -352,6 +352,7 @@ body {
 }
 
 .header__btn:visited, .header__btn:link {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -361,11 +362,26 @@ body {
   border-radius: 100px;
   font-size: 1.5rem;
   font-weight: 600;
+  transition: 0.2s all ease-out;
+}
+.header__btn:visited:hover, .header__btn:link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(70, 6, 148, 0.4);
+}
+.header__btn:visited:active, .header__btn:link:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(70, 6, 148, 0.4);
 }
 .header__btn--dark {
   border: 1px solid #fff;
   background: transparent;
   color: #ff3471;
+}
+.header__btn--dark:hover {
+  border: 1px solid #fff;
+  color: #090333;
+  background: rgba(255, 255, 255, 0.8);
+  filter: saturate(2);
 }
 .header__btn--light {
   background: #ff3471;
@@ -373,8 +389,32 @@ body {
   color: #fff;
   flex-shrink: 0;
 }
+.header__btn--light:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  background: #ff3471;
+  transition: 0.4s all ease-out;
+}
+.header__btn--light:hover {
+  background: #fff;
+  color: #ff3471;
+  border: 1px solid #fff;
+}
+.header__btn--light:hover:after {
+  background: #fff;
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
 
 .support__button {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -388,6 +428,7 @@ body {
   border-radius: 33px;
   background: #ff3471;
   padding: 1rem 2rem;
+  transition: 0.2s all ease 0s;
 }
 @media only screen and (min-width: 17.5em) {
   .support__button {
@@ -400,6 +441,39 @@ body {
     font-size: 1.6rem;
     padding: 2rem 3rem;
   }
+}
+.support__button:hover {
+  color: #fff;
+  background-color: #ff3471;
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+.support__button:hover:after {
+  transform: scaleX(1.4) scaleY(1.7);
+  opacity: 0;
+}
+.support__button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+.support__button:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 33px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: 0.4s all ease-out;
+}
+
+.btn-white {
+  background-color: #ff3471;
+}
+.btn-white:after {
+  background-color: #ff3471;
 }
 
 .daily-payouts {
@@ -549,6 +623,11 @@ body {
   .support__figure-box {
     grid-template-columns: min-content max-content;
   }
+}
+.support__img {
+  display: block;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .container {

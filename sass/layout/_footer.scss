@@ -1,0 +1,44 @@
+.footer {
+  &-container {
+    display: grid;
+    grid-auto-rows: min-content;
+    grid-row-gap: 2rem;
+    justify-items: center;
+  }
+
+  &__logo {
+    display: grid;
+    grid-template-columns: min-content max-content;
+    grid-column-gap: 0.5rem;
+    align-items: center;
+  }
+
+  &-media {
+    display: grid;
+    grid-template-columns: auto;
+    grid-row-gap: 0.5rem;
+    justify-items: start;
+    align-items: center;
+
+    @include respond(bp-small) {
+      grid-template-columns: min-content min-content;
+      grid-column-gap: 2rem;
+    }
+  }
+
+  &-media__box {
+    display: grid;
+    grid-template-columns: min-content max-content;
+    grid-auto-rows: min-content;
+    grid-column-gap: 0.5rem;
+    align-items: center;
+  }
+
+  &-copyright {
+    text-align: center;
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+}

@@ -14,6 +14,7 @@
     grid-template-columns: min-content 13rem;
     grid-gap: 1rem;
     align-items: center;
+    filter: invert(1);
 
     @include respond(bp-smaller) {
       grid-template-columns: min-content max-content;
@@ -23,5 +24,6 @@
   &__img {
     display: block;
     object-fit: contain;
+    filter: saturate(0);
   }
 }

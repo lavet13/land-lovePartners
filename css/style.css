@@ -128,7 +128,7 @@ body {
 .header__text--adjust {
   max-width: 20rem;
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .header__text--adjust {
     max-width: none;
   }
@@ -145,7 +145,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .header__big-text--adjust {
     width: 35rem;
   }
@@ -164,7 +164,7 @@ body {
     font-size: 2rem;
   }
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .potential__medium-bottom {
     font-size: 2.2rem;
   }
@@ -192,7 +192,7 @@ body {
 .header__medium-text--adjust {
   max-width: 25rem;
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .header__medium-text--adjust {
     max-width: 30rem;
   }
@@ -214,7 +214,7 @@ body {
     font-size: 3rem;
   }
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .daily-payouts__big-text {
     font-size: 3.6rem;
   }
@@ -233,7 +233,7 @@ body {
     font-size: 1.5rem;
   }
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .daily-payouts__medium-text {
     font-size: 2rem;
   }
@@ -252,7 +252,7 @@ body {
     font-size: 3rem;
   }
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .daily-payouts__bigger-text {
     font-size: 4rem;
   }
@@ -270,7 +270,7 @@ body {
     font-size: 1.2rem;
   }
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .daily-payouts__small-text {
     font-size: 1.5rem;
   }
@@ -288,7 +288,7 @@ body {
     font-size: 2.2rem;
   }
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .payments__big-text {
     font-size: 2.6rem;
   }
@@ -306,7 +306,7 @@ body {
     font-size: 2rem;
   }
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .support__medium-text {
     font-size: 2.2rem;
   }
@@ -317,14 +317,13 @@ body {
   font-weight: 300;
   line-height: 1.2;
   color: #5d5a63;
-  word-break: break-all;
 }
 @media only screen and (min-width: 17.5em) {
   .support__text {
     font-size: 1.3rem;
   }
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .support__text {
     font-size: 1.5rem;
   }
@@ -346,7 +345,7 @@ body {
     font-size: 3.5rem;
   }
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .admin-stuff__big-text {
     font-size: 4.4rem;
   }
@@ -363,7 +362,7 @@ body {
     font-size: 1.3rem;
   }
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .footer__text {
     font-size: 1.4rem;
   }
@@ -388,7 +387,7 @@ body {
     font-size: 2rem;
   }
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .footer__heading-primary--span {
     font-size: 2.2rem;
   }
@@ -459,7 +458,7 @@ body {
 .header__btn--dark:hover {
   border: 1px solid #fff;
   color: #090333;
-  background: rgba(255, 255, 255, 0.8);
+  background: #fff;
   filter: saturate(2);
 }
 .header__btn--light {
@@ -515,7 +514,7 @@ body {
     padding: 1.5rem 2.5rem;
   }
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .support__button {
     font-size: 1.6rem;
     padding: 2rem 3rem;
@@ -563,7 +562,6 @@ body {
   justify-content: center;
   padding: 2rem;
   padding-top: 5rem;
-  background: #2d036a;
 }
 .daily-payouts-box {
   justify-self: stretch;
@@ -591,7 +589,7 @@ body {
     margin-top: 6rem;
   }
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .daily-payouts__figure-img {
     margin-top: 9rem;
   }
@@ -610,7 +608,7 @@ body {
     height: 176%;
   }
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .daily-payouts__img {
     height: 150%;
   }
@@ -662,15 +660,13 @@ body {
   justify-items: center;
   align-items: start;
   grid-row-gap: 2rem;
+  background: url("../../img/potential/justAHouse.png") no-repeat top center/cover;
+  padding: 5rem 0;
 }
-.potential-box:after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: url("../../img/potential/justAHouse.png") no-repeat top center/contain;
-  z-index: -2;
+@media only screen and (min-width: 24.375em) {
+  .potential-box {
+    background: url("../../img/potential/justAHouse.png") no-repeat top center/35rem;
+  }
 }
 .potential-figure-img {
   display: flex;
@@ -719,10 +715,17 @@ body {
   display: block;
   max-width: 100%;
   object-fit: contain;
+  filter: saturate(1.2);
 }
 
 .container {
-  width: 100%;
+  max-width: 100%;
+}
+@media only screen and (min-width: 37.5em) {
+  .container {
+    max-width: 114rem;
+    margin: 0 auto;
+  }
 }
 
 .footer-container {
@@ -744,7 +747,7 @@ body {
   justify-items: start;
   align-items: center;
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .footer-media {
     grid-template-columns: min-content min-content;
     grid-column-gap: 2rem;
@@ -770,9 +773,14 @@ body {
   grid-row-gap: 1.5rem;
   align-items: start;
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .header {
     height: 90%;
+  }
+}
+@media only screen and (min-width: 37.5em) {
+  .header {
+    grid-template-columns: 1fr 1fr;
   }
 }
 .header__background {
@@ -783,7 +791,7 @@ body {
   margin-bottom: 3rem;
   z-index: 20;
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .header__background {
     clip-path: polygon(0 0, 100% 0, 100% 98%, 0 90%);
     margin-bottom: 0;
@@ -819,7 +827,7 @@ body {
   display: grid;
   grid-gap: 1rem;
 }
-@media only screen and (min-width: 24.3125em) {
+@media only screen and (min-width: 24.375em) {
   .header__buttons {
     grid-template-columns: repeat(2, max-content);
   }
@@ -877,12 +885,9 @@ body {
   z-index: -1;
 }
 
-.potential-indent {
-  margin-bottom: 8rem;
-}
-
 .daily-payouts__background {
   margin-bottom: 12rem;
+  background: #2d036a;
 }
 @media only screen and (min-width: 17.5em) {
   .daily-payouts__background {
@@ -901,15 +906,10 @@ body {
 .admin-stuff-background {
   background-image: url("../img/admin-stuff/admin-panel.png");
   background-repeat: no-repeat;
-  background-position: 25% 50%;
+  background-position: 30% 50%;
   background-size: cover;
   height: 100vh;
   padding-top: 3rem;
-}
-@media only screen and (min-width: 24.3125em) {
-  .admin-stuff-background {
-    background-position: 10% 50%;
-  }
 }
 
 .footer-background {

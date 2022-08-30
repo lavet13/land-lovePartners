@@ -1,62 +1,55 @@
 .header__indent {
-  position: relative;
+    position: relative;
 
-  margin-bottom: 15rem;
+    margin-bottom: 15rem;
 
-  &::after {
-    content: '';
-    position: absolute;
-    top: -150%;
-    left: 0;
-    display: block;
-    width: 100%;
-    height: 200%;
-    background-image: url('../../img/header/dashes.png');
-    background-repeat: no-repeat;
-    background-position: bottom 0 right -3rem;
-    background-size: cover;
+    &::after {
+        content: "";
+        position: absolute;
+        top: -150%;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 200%;
+        background-image: url("../../img/header/dashes.png");
+        background-repeat: no-repeat;
+        background-position: bottom 0 right -3rem;
+        background-size: cover;
 
-    transform-origin: center;
-    transform: translate(0, 50%);
-    z-index: -1;
-  }
-}
-
-.potential-indent {
-  margin-bottom: 8rem;
+        transform-origin: center;
+        transform: translate(0, 50%);
+        z-index: -1;
+    }
 }
 
 .daily-payouts__background {
-  margin-bottom: 12rem;
+    margin-bottom: 12rem;
+    background: $color-pink;
 
-  @include respond(bp-smaller) {
-    margin-bottom: 13.5rem;
-  }
+    @include respond(bp-smaller) {
+        margin-bottom: 13.5rem;
+    }
 }
 
 .payments-indent {
-  margin-bottom: 8rem;
+    margin-bottom: 8rem;
 }
 
 .support-indent {
-  margin-bottom: 6rem;
+    margin-bottom: 6rem;
 }
 
 .admin-stuff-background {
-  background-image: url('../img/admin-stuff/admin-panel.png');
-  background-repeat: no-repeat;
-  background-position: 25% 50%;
-  background-size: cover;
+    background-image: url("../img/admin-stuff/admin-panel.png");
+    background-repeat: no-repeat;
+    background-position: 30% 50%;
+    background-size: cover;
 
-  height: 100vh;
-  padding-top: 3rem;
-
-  @include respond(bp-small) {
-    background-position: 10% 50%;
-  }
+    height: 100vh;
+    padding-top: 3rem;
 }
 
 .footer-background {
-  padding: 3rem 1rem;
-  background-color: $color-pink;
+    padding: 3rem 1rem;
+    background-color: $color-pink;
 }

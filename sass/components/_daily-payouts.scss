@@ -1,66 +1,64 @@
 .daily-payouts {
-  display: grid;
-  grid-auto-rows: min-content;
-  grid-row-gap: 3rem;
-  justify-items: center;
-  justify-content: center;
-
-  padding: 2rem;
-  padding-top: 5rem;
-
-  background: $color-pink;
-
-  &-box {
-    justify-self: stretch;
     display: grid;
+    grid-auto-rows: min-content;
+    grid-row-gap: 3rem;
     justify-items: center;
-    align-items: start;
+    justify-content: center;
 
-    padding: 1rem 0.5rem;
+    padding: 2rem;
+    padding-top: 5rem;
 
-    border-radius: 20px;
-    border: 1px solid $color-white;
-    max-width: 46rem;
-  }
+    &-box {
+        justify-self: stretch;
+        display: grid;
+        justify-items: center;
+        align-items: start;
 
-  &__figure-img {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    margin-top: 3rem;
+        padding: 1rem 0.5rem;
 
-    position: relative;
-
-    background: $color-pink;
-
-    width: 100%;
-    height: 15.5rem;
-
-    @include respond(bp-smaller) {
-      margin-top: 6rem;
+        border-radius: 20px;
+        border: 1px solid $color-white;
+        max-width: 46rem;
     }
 
-    @include respond(bp-small) {
-      margin-top: 9rem;
-    }
-  }
+    &__figure-img {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 3rem;
 
-  &__img {
-    position: absolute;
-    top: 0;
-    display: block;
-    width: 95%;
-    height: 150%;
-    object-fit: contain;
+        position: relative;
 
-    @include respond(bp-smaller) {
-      top: -2.5rem;
-      height: 176%;
+        background: $color-pink;
+
+        width: 100%;
+        height: 15.5rem;
+
+        @include respond(bp-smaller) {
+            margin-top: 6rem;
+        }
+
+        @include respond(bp-small) {
+            margin-top: 9rem;
+        }
     }
 
-    @include respond(bp-small) {
-      height: 150%;
+    &__img {
+        position: absolute;
+        top: 0;
+        display: block;
+        width: 95%;
+        height: 150%;
+        object-fit: contain;
+
+        @include respond(bp-smaller) {
+            top: -2.5rem;
+            height: 176%;
+        }
+
+        @include respond(bp-small) {
+            height: 150%;
+        }
     }
-  }
 }

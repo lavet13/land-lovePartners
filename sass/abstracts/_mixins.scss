@@ -18,33 +18,38 @@ ORDER: Base + typography > general layout + grid > page layout > components
 1 em = 16px
 */
 
-// basic stuff mobile first 
+// basic stuff mobile first
 @mixin respond($breakpoint) {
     @if $breakpoint == bp-smaller {
-        @media only screen and (min-width: 17.5em) { // 280px and above
+        @media only screen and (min-width: 17.5em) {
+            // 280px and above
             @content;
         }
     }
     @if $breakpoint == bp-small {
-        @media only screen and (min-width: 24.3125em) { // 389px and above
+        @media only screen and (min-width: 24.375em) {
+            // 390px and above
             @content;
         }
     }
 
     @if $breakpoint == bp-medium {
-        @media only screen and (min-width: 37.5em) { // 600px and above
+        @media only screen and (min-width: 37.5em) {
+            // 600px and above
             @content;
         }
     }
-    
+
     @if $breakpoint == bp-large {
-        @media only screen and (min-width: 56.25em) { // 900px and above
+        @media only screen and (min-width: 56.25em) {
+            // 900px and above
             @content;
         }
     }
 
     @if $breakpoint == bp-largest {
-        @media only screen and (min-width: 75em) { // 1200px and above
+        @media only screen and (min-width: 75em) {
+            // 1200px and above
             @content;
         }
     }

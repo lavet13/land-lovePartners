@@ -1,357 +1,356 @@
 @font-face {
-  font-family: 'Averta CY';
-  src: url('fonts/Averta Cyrillic Extra Thin.otf') format('opentype');
+    font-family: "Averta CY";
+    src: url("fonts/Averta Cyrillic Extra Thin.otf") format("opentype");
 
-  font-weight: 100;
+    font-weight: 100;
 }
 
 @font-face {
-  font-family: 'Averta CY';
-  src: url('fonts/Averta Cyrillic Thin.otf') format('opentype');
+    font-family: "Averta CY";
+    src: url("fonts/Averta Cyrillic Thin.otf") format("opentype");
 
-  font-weight: 200;
+    font-weight: 200;
 }
 
 @font-face {
-  font-family: 'Averta CY';
-  src: url('fonts/Averta Cyrillic Light.otf') format('opentype');
+    font-family: "Averta CY";
+    src: url("fonts/Averta Cyrillic Light.otf") format("opentype");
 
-  font-weight: 300;
+    font-weight: 300;
 }
 
 @font-face {
-  font-family: 'Averta CY';
-  src: url('fonts/Averta-Cyrillic-Regular.otf') format('opentype');
+    font-family: "Averta CY";
+    src: url("fonts/Averta-Cyrillic-Regular.otf") format("opentype");
 
-  font-weight: 400;
+    font-weight: 400;
 }
 
 @font-face {
-  font-family: 'Averta CY';
-  src: url('fonts/Averta Cyrillic SemiBold.otf') format('opentype');
+    font-family: "Averta CY";
+    src: url("fonts/Averta Cyrillic SemiBold.otf") format("opentype");
 
-  font-weight: 600;
+    font-weight: 600;
 }
 
 @font-face {
-  font-family: 'Averta CY';
-  src: url('fonts/Averta-Cyrillic-Bold.otf') format('opentype');
+    font-family: "Averta CY";
+    src: url("fonts/Averta-Cyrillic-Bold.otf") format("opentype");
 
-  font-weight: 700;
+    font-weight: 700;
 }
 
 @font-face {
-  font-family: 'Averta CY';
-  src: url('fonts/Averta Cyrillic ExtraBold.otf') format('opentype');
+    font-family: "Averta CY";
+    src: url("fonts/Averta Cyrillic ExtraBold.otf") format("opentype");
 
-  font-weight: 800;
+    font-weight: 800;
 }
 
 @font-face {
-  font-family: 'Averta CY';
-  src: url('fonts/Averta-Cyrillic-Black.otf') format('opentype');
+    font-family: "Averta CY";
+    src: url("fonts/Averta-Cyrillic-Black.otf") format("opentype");
 
-  font-weight: 900;
+    font-weight: 900;
 }
 
 body {
-  font-family: $font-primary;
-  font-weight: 400;
-  line-height: 1.6;
-  color: $color-black;
+    font-family: $font-primary;
+    font-weight: 400;
+    line-height: 1.6;
+    color: $color-black;
 }
 
 .header__text {
-  font-size: 1.4rem;
-  color: $color-blue-light-1;
+    font-size: 1.4rem;
+    color: $color-blue-light-1;
 
-  &--adjust {
-    max-width: 20rem;
+    &--adjust {
+        max-width: 20rem;
 
-    @include respond(bp-small) {
-      max-width: none;
+        @include respond(bp-small) {
+            max-width: none;
+        }
+
+        &-lh {
+            line-height: 1;
+        }
     }
 
-    &-lh {
-      line-height: 1;
+    &--purple {
+        color: $color-blue-light-2;
     }
-  }
-
-  &--purple {
-    color: $color-blue-light-2;
-  }
 }
 
 .header__big-text {
-  font-size: 2.4rem;
-  font-weight: 700;
-  text-transform: uppercase;
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
 
-  &--adjust {
-    @include respond(bp-small) {
-      width: 35rem;
+    &--adjust {
+        @include respond(bp-small) {
+            width: 35rem;
+        }
     }
-  }
 }
 
 .potential__medium-bottom {
-  text-transform: uppercase;
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: $color-blue-light-3;
-  line-height: 1.3268;
-  text-align: center;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: $color-blue-light-3;
+    line-height: 1.3268;
+    text-align: center;
 
-  @include respond(bp-smaller) {
-    font-size: 2rem;
-  }
+    @include respond(bp-smaller) {
+        font-size: 2rem;
+    }
 
-  @include respond(bp-small) {
-    font-size: 2.2rem;
-  }
+    @include respond(bp-small) {
+        font-size: 2.2rem;
+    }
 }
 
 .potential__small-text {
-  display: inline;
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: $color-grey-light-3;
-  text-align: center;
-  line-height: 1.055888;
+    display: inline;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: $color-grey-light-3;
+    text-align: center;
+    line-height: 1.055888;
 
-  &--adjust {
-    width: 23rem;
-  }
+    &--adjust {
+        width: 23rem;
+    }
 }
 
 .header__medium-text {
-  font-size: 2rem;
-  font-weight: 700;
+    font-size: 2rem;
+    font-weight: 700;
 
-  &--purple {
-    color: $color-blue-light-2;
-  }
-
-  &--adjust {
-    max-width: 25rem;
-
-    @include respond(bp-small) {
-      max-width: 30rem;
+    &--purple {
+        color: $color-blue-light-2;
     }
 
-    &-lh {
-      line-height: 1;
+    &--adjust {
+        max-width: 25rem;
+
+        @include respond(bp-small) {
+            max-width: 30rem;
+        }
+
+        &-lh {
+            line-height: 1;
+        }
     }
-  }
 }
 
 .daily-payouts__big-text {
-  text-transform: uppercase;
-  font-size: 2.7rem;
-  font-weight: 700;
-  line-height: 1;
-  text-align: center;
-  letter-spacing: 0.03em;
+    text-transform: uppercase;
+    font-size: 2.7rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    letter-spacing: 0.03em;
 
-  @include respond(bp-smaller) {
-    font-size: 3rem;
-  }
+    @include respond(bp-smaller) {
+        font-size: 3rem;
+    }
 
-  @include respond(bp-small) {
-    font-size: 3.6rem;
-  }
+    @include respond(bp-small) {
+        font-size: 3.6rem;
+    }
 }
 
 .daily-payouts__medium-text {
-  color: $color-white;
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: 1;
-  text-align: center;
-  letter-spacing: 0.03em;
+    color: $color-white;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    letter-spacing: 0.03em;
 
-  @include respond(bp-smaller) {
-    font-size: 1.5rem;
-  }
+    @include respond(bp-smaller) {
+        font-size: 1.5rem;
+    }
 
-  @include respond(bp-small) {
-    font-size: 2rem;
-  }
+    @include respond(bp-small) {
+        font-size: 2rem;
+    }
 }
 
 .daily-payouts__bigger-text {
-  color: $color-purple;
-  font-size: 2.4rem;
-  font-weight: 700;
-  line-height: 1.175;
-  text-align: center;
-  letter-spacing: 0.03em;
+    color: $color-purple;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.175;
+    text-align: center;
+    letter-spacing: 0.03em;
 
-  @include respond(bp-smaller) {
-    font-size: 3rem;
-  }
+    @include respond(bp-smaller) {
+        font-size: 3rem;
+    }
 
-  @include respond(bp-small) {
-    font-size: 4rem;
-  }
+    @include respond(bp-small) {
+        font-size: 4rem;
+    }
 }
 
 .daily-payouts__small-text {
-  color: $color-white;
-  font-size: 1rem;
-  font-weight: 400;
-  text-align: center;
-  letter-spacing: 0.03em;
+    color: $color-white;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.03em;
 
-  @include respond(bp-smaller) {
-    font-size: 1.2rem;
-  }
+    @include respond(bp-smaller) {
+        font-size: 1.2rem;
+    }
 
-  @include respond(bp-small) {
-    font-size: 1.5rem;
-  }
+    @include respond(bp-small) {
+        font-size: 1.5rem;
+    }
 }
 
 .payments__big-text {
-  color: $color-gray-2;
-  font-size: 1.8rem;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.03em;
+    color: $color-gray-2;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.03em;
 
-  @include respond(bp-smaller) {
-    font-size: 2.2rem;
-  }
+    @include respond(bp-smaller) {
+        font-size: 2.2rem;
+    }
 
-  @include respond(bp-small) {
-    font-size: 2.6rem;
-  }
+    @include respond(bp-small) {
+        font-size: 2.6rem;
+    }
 }
 
 .support__medium-text {
-  font-size: 1.7rem;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: 0.03em;
-  color: $color-pink;
+    font-size: 1.7rem;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: 0.03em;
+    color: $color-pink;
 
-  @include respond(bp-smaller) {
-    font-size: 2rem;
-  }
+    @include respond(bp-smaller) {
+        font-size: 2rem;
+    }
 
-  @include respond(bp-small) {
-    font-size: 2.2rem;
-  }
+    @include respond(bp-small) {
+        font-size: 2.2rem;
+    }
 }
 
 .support__text {
-  font-size: 1.2rem;
-  font-weight: 300;
-  line-height: 1.2;
-  color: $color-grey-light-3;
-  word-break: break-all;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: $color-grey-light-3;
 
-  @include respond(bp-smaller) {
-    font-size: 1.3rem;
-  }
+    @include respond(bp-smaller) {
+        font-size: 1.3rem;
+    }
 
-  @include respond(bp-small) {
-    font-size: 1.5rem;
-  }
+    @include respond(bp-small) {
+        font-size: 1.5rem;
+    }
 
-  &--adjust {
-    max-width: 70%;
-  }
+    &--adjust {
+        max-width: 70%;
+    }
 }
 
 .admin-stuff__big-text {
-  text-transform: uppercase;
-  font-size: 2.7rem;
-  font-weight: 700;
-  line-height: 1;
-  text-align: center;
-  letter-spacing: 0.03em;
+    text-transform: uppercase;
+    font-size: 2.7rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    letter-spacing: 0.03em;
 
-  @include respond(bp-smaller) {
-    font-size: 3.5rem;
-  }
+    @include respond(bp-smaller) {
+        font-size: 3.5rem;
+    }
 
-  @include respond(bp-small) {
-    font-size: 4.4rem;
-  }
+    @include respond(bp-small) {
+        font-size: 4.4rem;
+    }
 }
 
 .footer__text {
-  font-size: 1.2rem;
-  font-weight: 400;
-  text-align: center;
-  color: $color-white;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: center;
+    color: $color-white;
 
-  @include respond(bp-smaller) {
-    font-size: 1.3rem;
-  }
+    @include respond(bp-smaller) {
+        font-size: 1.3rem;
+    }
 
-  @include respond(bp-small) {
-    font-size: 1.4rem;
-  }
+    @include respond(bp-small) {
+        font-size: 1.4rem;
+    }
 }
 
 .footer__heading-primary {
-  display: grid;
-  grid-auto-rows: min-content;
-  grid-row-gap: 1rem;
+    display: grid;
+    grid-auto-rows: min-content;
+    grid-row-gap: 1rem;
 
-  text-align: center;
-  color: $color-white;
-  text-transform: uppercase;
+    text-align: center;
+    color: $color-white;
+    text-transform: uppercase;
 
-  &--span {
-    display: block;
-    font-size: 1.9rem;
-    font-weight: 400;
-    line-height: 1;
+    &--span {
+        display: block;
+        font-size: 1.9rem;
+        font-weight: 400;
+        line-height: 1;
 
-    @include respond(bp-smaller) {
-      font-size: 2rem;
+        @include respond(bp-smaller) {
+            font-size: 2rem;
+        }
+
+        @include respond(bp-small) {
+            font-size: 2.2rem;
+        }
     }
-
-    @include respond(bp-small) {
-      font-size: 2.2rem;
-    }
-  }
 }
 
 .footer-copyright__text {
-  font-size: 1rem;
-  font-weight: 400;
-  color: $color-gray-3;
+    font-size: 1rem;
+    font-weight: 400;
+    color: $color-gray-3;
 }
 
 .color--white {
-  color: $color-white;
+    color: $color-white;
 
-  &--adjust {
-    @include respond(bp-small) {
+    &--adjust {
+        @include respond(bp-small) {
+        }
     }
-  }
 }
 
 .color--purple {
-  display: block;
-  color: $color-purple;
+    display: block;
+    color: $color-purple;
 
-  &--adjust {
-    @include respond(bp-small) {
+    &--adjust {
+        @include respond(bp-small) {
+        }
     }
-  }
 }
 
 .color--pink {
-  color: $color-pink;
+    color: $color-pink;
 }
 
 .color--gray {
-  color: $color-gray-1;
+    color: $color-gray-1;
 }
 
 // https://stackoverflow.com/questions/3245141/using-otf-fonts-on-web-browsers

@@ -9,7 +9,8 @@
     }
 
     @include respond(bp-medium) {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr max-content;
+        grid-template-rows: 13rem auto;
     }
 
     // https://ru.stackoverflow.com/questions/1254856/%D0%A7%D1%82%D0%BE-%D0%BE%D0%B7%D0%BD%D0%B0%D1%87%D0%B0%D0%B5%D1%82-%D0%B2-background-%D1%81%D0%B2%D0%BE%D0%B9%D1%81%D1%82%D0%B2%D0%B5-center-center-cover
@@ -17,8 +18,7 @@
     // https://developer.mozilla.org/ru/docs/Web/CSS/background
 
     &__background {
-        display: grid; // important btw
-        background: url("../img/header/BG.png") 70% / cover no-repeat;
+        background: url('../img/header/BG.png') 70% / cover no-repeat;
         min-height: 100vh; // important btw
         padding: 2rem;
         margin-bottom: 3rem;
@@ -60,6 +60,10 @@
         display: grid;
         grid-auto-rows: min-content;
         grid-row-gap: 1rem;
+
+        @include respond(bp-medium) {
+            row-gap: 2rem;
+        }
     }
 
     &__buttons {
@@ -69,6 +73,38 @@
         @include respond(bp-small) {
             grid-template-columns: repeat(2, max-content);
         }
+
+        @include respond(bp-medium) {
+            column-gap: 3rem;
+        }
+    }
+
+    &__nav-links {
+        display: none;
+
+        @include respond(bp-medium) {
+            grid-column: 2;
+            grid-row: 1 / span 2;
+            justify-self: end;
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+    }
+
+    &__nav-link-item {
+        &:not(:last-child) {
+            margin-right: 1.5rem;
+        }
+    }
+
+    &__nav-link {
+        &:visited,
+        &:link {
+            display: inline-block;
+            text-decoration: none;
+            font-size: 1.8rem;
+        }
     }
 
     &__info {
@@ -76,6 +112,9 @@
         grid-auto-rows: min-content;
         grid-row-gap: 3rem;
         padding: 0 1rem;
+
+        max-width: 45rem;
+        margin: 0 auto;
 
         @include respond(bp-smaller) {
             grid-row-gap: 5rem;

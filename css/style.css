@@ -147,7 +147,12 @@ body {
 }
 @media only screen and (min-width: 24.375em) {
   .header__big-text--adjust {
-    width: 35rem;
+    max-width: 35rem;
+  }
+}
+@media only screen and (min-width: 37.5em) {
+  .header__big-text--adjust {
+    max-width: 40rem;
   }
 }
 
@@ -402,10 +407,17 @@ body {
 .color--white {
   color: #fff;
 }
+
 .color--purple {
   display: block;
   color: #ff3471;
 }
+@media only screen and (min-width: 37.5em) {
+  .color--purple {
+    display: inline-block;
+  }
+}
+
 .color--pink {
   color: #2d036a;
 }
@@ -780,11 +792,11 @@ body {
 }
 @media only screen and (min-width: 37.5em) {
   .header {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr max-content;
+    grid-template-rows: 13rem auto;
   }
 }
 .header__background {
-  display: grid;
   background: url("../img/header/BG.png") 70%/cover no-repeat;
   min-height: 100vh;
   padding: 2rem;
@@ -823,6 +835,11 @@ body {
   grid-auto-rows: min-content;
   grid-row-gap: 1rem;
 }
+@media only screen and (min-width: 37.5em) {
+  .header__bottom {
+    row-gap: 2rem;
+  }
+}
 .header__buttons {
   display: grid;
   grid-gap: 1rem;
@@ -832,11 +849,39 @@ body {
     grid-template-columns: repeat(2, max-content);
   }
 }
+@media only screen and (min-width: 37.5em) {
+  .header__buttons {
+    column-gap: 3rem;
+  }
+}
+.header__nav-links {
+  display: none;
+}
+@media only screen and (min-width: 37.5em) {
+  .header__nav-links {
+    grid-column: 2;
+    grid-row: 1/span 2;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    list-style: none;
+  }
+}
+.header__nav-link-item:not(:last-child) {
+  margin-right: 1.5rem;
+}
+.header__nav-link:visited, .header__nav-link:link {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.8rem;
+}
 .header__info {
   display: grid;
   grid-auto-rows: min-content;
   grid-row-gap: 3rem;
   padding: 0 1rem;
+  max-width: 45rem;
+  margin: 0 auto;
 }
 @media only screen and (min-width: 17.5em) {
   .header__info {
@@ -866,7 +911,6 @@ body {
 
 .header__indent {
   position: relative;
-  margin-bottom: 15rem;
 }
 .header__indent::after {
   content: "";

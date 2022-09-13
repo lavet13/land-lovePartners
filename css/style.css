@@ -74,6 +74,42 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  font-family: "Averta CY";
+  font-weight: 400;
+  line-height: 1.6;
+  color: #000;
+}
+body:before {
+  display: none;
+  visibility: hidden;
+}
+@media only screen and (min-width: 17.5em) {
+  body:before {
+    content: "tiny";
+  }
+}
+@media only screen and (min-width: 24.375em) {
+  body:before {
+    content: "very small";
+  }
+}
+@media only screen and (min-width: 37.5em) {
+  body:before {
+    content: "small";
+  }
+}
+@media only screen and (min-width: 56.25em) {
+  body:before {
+    content: "medium";
+  }
+}
+@media only screen and (min-width: 75em) {
+  body:before {
+    content: "large";
+  }
+}
+
 @font-face {
   font-family: "Averta CY";
   src: url("fonts/Averta Cyrillic Extra Thin.otf") format("opentype");
@@ -114,13 +150,6 @@ html {
   src: url("fonts/Averta-Cyrillic-Black.otf") format("opentype");
   font-weight: 900;
 }
-body {
-  font-family: "Averta CY";
-  font-weight: 400;
-  line-height: 1.6;
-  color: #000;
-}
-
 .header__text {
   font-size: 1.4rem;
   color: #626cff;

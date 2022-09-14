@@ -6,15 +6,34 @@ const getBreakpoint = function () {
         .content.replace(/\"/g, '');
 };
 
-window.addEventListener('resize', e => {
-    console.log(getBreakpoint());
-    if (document.documentElement.clientWidth > 0) {
-        document
-            .querySelector('.header')
-            .after(document.querySelector('.header__indent'));
-    } else if (document.documentElement.clientWidth > 600) {
-        document
-            .querySelector('.header')
-            .append(document.querySelector('.header__indent'));
+const breakpoints = ['none', 'very small', 'small', 'medium', 'large'];
+
+const headerIndent = document.querySelector('.header__indent');
+
+const cssApply = function (breakpoint) {
+    switch (breakpoint) {
+        case 'large':
+            break;
+
+        case 'medium':
+            break;
+
+        case 'small':
+            console.log('medium');
+            document.querySelector('.header').append(headerIndent);
+            break;
+
+        case 'very small':
+            document.querySelector('.header__background').after(headerIndent);
+            break;
+
+        case 'none':
+            break;
     }
+};
+
+cssApply(getBreakpoint());
+
+window.addEventListener('resize', () => {
+    cssApply(getBreakpoint());
 });

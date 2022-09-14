@@ -1,5 +1,10 @@
 .header__indent {
     position: relative;
+    margin-bottom: 5.5rem;
+
+    @include respond(bp-medium) {
+        margin-bottom: 0;
+    }
 
     &::after {
         content: '';

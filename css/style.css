@@ -83,6 +83,7 @@ body {
 body:before {
   display: none;
   visibility: hidden;
+  content: "none";
 }
 @media only screen and (min-width: 17.5em) {
   body:before {
@@ -483,6 +484,11 @@ body:before {
   font-weight: 600;
   transition: 0.2s all ease-out;
 }
+@media only screen and (min-width: 37.5em) {
+  .header__btn:visited, .header__btn:link {
+    padding: 1.5rem 3rem;
+  }
+}
 .header__btn:visited:hover, .header__btn:link:hover {
   transform: translateY(-3px);
   box-shadow: 0 1rem 2rem rgba(70, 6, 148, 0.4);
@@ -760,6 +766,7 @@ body:before {
 }
 
 .container {
+  display: grid;
   max-width: 100%;
 }
 @media only screen and (min-width: 37.5em) {
@@ -810,9 +817,10 @@ body:before {
 
 .header {
   display: grid;
-  grid-template-rows: minmax(15rem, 1fr) min-content;
+  grid-template-rows: 1fr min-content;
   grid-row-gap: 1.5rem;
   align-items: start;
+  margin-bottom: 1rem;
 }
 @media only screen and (min-width: 24.375em) {
   .header {
@@ -821,14 +829,16 @@ body:before {
 }
 @media only screen and (min-width: 37.5em) {
   .header {
-    grid-template-columns: 1fr max-content;
+    grid-template-columns: 4fr 1fr;
     grid-template-rows: 13rem auto;
   }
 }
 .header__background {
+  display: grid;
   background: url("../img/header/BG.png") 70%/cover no-repeat;
   min-height: 100vh;
   padding: 2rem;
+  padding-bottom: 4rem;
   margin-bottom: 3rem;
   z-index: 20;
 }
@@ -836,6 +846,11 @@ body:before {
   .header__background {
     clip-path: polygon(0 0, 100% 0, 100% 98%, 0 90%);
     margin-bottom: 0;
+  }
+}
+@media only screen and (min-width: 37.5em) {
+  .header__background {
+    padding: 2rem;
   }
 }
 .header__figure-img {
@@ -881,6 +896,19 @@ body:before {
 @media only screen and (min-width: 37.5em) {
   .header__buttons {
     column-gap: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+  }
+}
+@media only screen and (min-width: 37.5em) {
+  .header__btn--register {
+    order: 2;
+    justify-self: start;
+  }
+}
+@media only screen and (min-width: 37.5em) {
+  .header__btn--signup {
+    order: 1;
   }
 }
 .header__nav-links {
@@ -939,6 +967,12 @@ body:before {
 
 .header__indent {
   position: relative;
+  margin-bottom: 5.5rem;
+}
+@media only screen and (min-width: 37.5em) {
+  .header__indent {
+    margin-bottom: 0;
+  }
 }
 .header__indent::after {
   content: "";

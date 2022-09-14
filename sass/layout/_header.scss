@@ -1,15 +1,16 @@
 .header {
     display: grid;
-    grid-template-rows: minmax(15rem, 1fr) min-content;
+    grid-template-rows: 1fr min-content;
     grid-row-gap: 1.5rem;
     align-items: start;
+    margin-bottom: 1rem;
 
     @include respond(bp-small) {
         height: 90%;
     }
 
     @include respond(bp-medium) {
-        grid-template-columns: 1fr max-content;
+        grid-template-columns: 4fr 1fr;
         grid-template-rows: 13rem auto;
     }
 
@@ -18,15 +19,21 @@
     // https://developer.mozilla.org/ru/docs/Web/CSS/background
 
     &__background {
+        display: grid;
         background: url('../img/header/BG.png') 70% / cover no-repeat;
         min-height: 100vh; // important btw
         padding: 2rem;
+        padding-bottom: 4rem;
         margin-bottom: 3rem;
         z-index: 20;
 
         @include respond(bp-small) {
             clip-path: polygon(0 0, 100% 0, 100% 98%, 0 90%);
             margin-bottom: 0;
+        }
+
+        @include respond(bp-medium) {
+            padding: 2rem;
         }
     }
 
@@ -76,6 +83,23 @@
 
         @include respond(bp-medium) {
             column-gap: 3rem;
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 100%;
+        }
+    }
+
+    &__btn {
+        &--register {
+            @include respond(bp-medium) {
+                order: 2;
+                justify-self: start;
+            }
+        }
+
+        &--signup {
+            @include respond(bp-medium) {
+                order: 1;
+            }
         }
     }
 

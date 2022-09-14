@@ -17,6 +17,10 @@
 
         transition: 0.2s all ease-out;
 
+        @include respond(bp-medium) {
+            padding: 1.5rem 3rem;
+        }
+
         &:hover {
             transform: translateY(-3px);
             box-shadow: 0 1rem 2rem rgba($color-blue, 0.4);
@@ -48,7 +52,7 @@
         flex-shrink: 0;
 
         &:after {
-            content: "";
+            content: '';
 
             position: absolute;
             top: 0;
@@ -130,7 +134,7 @@
     }
 
     &:after {
-        content: "";
+        content: '';
 
         display: inline-block;
         width: 100%;

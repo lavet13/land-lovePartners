@@ -27,6 +27,7 @@ body {
     &:before {
         display: none;
         visibility: hidden;
+        content: 'none';
 
         @include respond(bp-smaller) {
             content: 'tiny';

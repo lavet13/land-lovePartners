@@ -155,6 +155,12 @@ body:before {
   font-size: 1.4rem;
   color: #626cff;
 }
+@media only screen and (min-width: 37.5em) {
+  .header__text {
+    font-size: 1.6rem;
+    letter-spacing: 0.05em;
+  }
+}
 .header__text--adjust {
   max-width: 20rem;
 }
@@ -175,6 +181,12 @@ body:before {
   font-weight: 700;
   text-transform: uppercase;
 }
+@media only screen and (min-width: 37.5em) {
+  .header__big-text {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+  }
+}
 @media only screen and (min-width: 24.375em) {
   .header__big-text--adjust {
     max-width: 35rem;
@@ -182,7 +194,7 @@ body:before {
 }
 @media only screen and (min-width: 37.5em) {
   .header__big-text--adjust {
-    max-width: 40rem;
+    max-width: 45rem;
   }
 }
 
@@ -499,13 +511,13 @@ body:before {
 }
 .header__btn--dark {
   border: 1px solid #fff;
-  background: transparent;
-  color: #ff3471;
+  background: transparent !important;
+  color: #ff3471 !important;
 }
 .header__btn--dark:hover {
   border: 1px solid #fff;
-  color: #090333;
-  background: #fff;
+  color: #090333 !important;
+  background: #fff !important;
   filter: saturate(2);
 }
 .header__btn--light {
@@ -534,7 +546,7 @@ body:before {
 }
 .header__btn--light:hover:after {
   background: #fff;
-  transform: scaleX(1.4) scaleY(1.6);
+  transform: scaleX(1.1) scaleY(1.6);
   opacity: 0;
 }
 
@@ -601,6 +613,84 @@ body:before {
   background-color: #ff3471;
 }
 
+.dropdown-btn {
+  display: none;
+  position: relative;
+}
+@media only screen and (min-width: 37.5em) {
+  .dropdown-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 10000;
+    display: inline-block;
+    width: 5rem;
+    height: 5rem;
+    border: 0;
+    background: #ff3471;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.2s all cubic-bezier(0.06, 0.25, 0.37, 0.94);
+  }
+  .dropdown-btn:hover {
+    filter: drop-shadow(0 0 0.3rem #ff3471) contrast(1.5);
+    transform: translateY(-1px);
+  }
+  .dropdown-btn:active {
+    transform: translateY(0) scale(0.95);
+  }
+  .dropdown-btn:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+    transition: 0.2s all ease-in;
+  }
+}
+.dropdown-btn span:before, .dropdown-btn span:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+}
+.dropdown-btn span:after, .dropdown-btn span:before {
+  content: "";
+  display: block;
+  transition: 0.2s all ease-in;
+}
+.dropdown-btn span:after {
+  transform: translate(-50%, 250%);
+}
+.dropdown-btn span:before {
+  transform: translate(-50%, -300%);
+}
+.dropdown-btn--active span:before {
+  transform: translate(-50%, 50%) rotate(45deg);
+}
+.dropdown-btn--active span:after {
+  transform: translate(-50%, 50%) rotate(-45deg);
+}
+.dropdown-btn--active:after {
+  transform: translate(100%, -50%);
+  opacity: 0;
+}
+.dropdown-btn--active {
+  transform: scale(0.75);
+}
+.dropdown-btn--active:hover {
+  transform: translateY(-1px) scale(0.75);
+}
+.dropdown-btn--active:active {
+  transform: translateY(0) scale(0.75);
+}
+
 .daily-payouts {
   display: grid;
   grid-auto-rows: min-content;
@@ -661,6 +751,23 @@ body:before {
   }
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(9, 3, 51, 0.4);
+  filter: blur(2px);
+  transition: all 1s;
+  z-index: 100;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
 .payments {
   display: grid;
   grid-auto-rows: min-content;
@@ -694,11 +801,12 @@ body:before {
 .potential {
   display: grid;
   grid-auto-rows: min-content;
-  grid-row-gap: 22rem;
+  grid-row-gap: 15rem;
 }
 @media only screen and (min-width: 17.5em) {
   .potential {
-    padding: 0 1rem;
+    padding: 4rem 0;
+    padding-bottom: 0;
   }
 }
 .potential-box {
@@ -709,11 +817,16 @@ body:before {
   grid-row-gap: 2rem;
   background: url("../../img/potential/justAHouse.png") no-repeat top center/cover;
   padding: 5rem 0;
+  transition: 1s all;
 }
 @media only screen and (min-width: 24.375em) {
   .potential-box {
     background: url("../../img/potential/justAHouse.png") no-repeat top center/35rem;
   }
+}
+.potential-box--hidden {
+  opacity: 0;
+  transform: translateY(8rem);
 }
 .potential-figure-img {
   display: flex;
@@ -766,7 +879,6 @@ body:before {
 }
 
 .container {
-  display: grid;
   max-width: 100%;
 }
 @media only screen and (min-width: 37.5em) {
@@ -829,11 +941,12 @@ body:before {
 }
 @media only screen and (min-width: 37.5em) {
   .header {
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: 13rem auto;
   }
 }
 .header__background {
+  position: relative;
   display: grid;
   background: url("../img/header/BG.png") 70%/cover no-repeat;
   min-height: 100vh;
@@ -841,6 +954,26 @@ body:before {
   padding-bottom: 4rem;
   margin-bottom: 3rem;
   z-index: 20;
+  overflow: hidden;
+  margin: 0 auto;
+}
+@media only screen and (min-width: 37.5em) {
+  .header__background {
+    display: block;
+  }
+}
+.header__background .container {
+  min-height: 100vh;
+}
+@media only screen and (min-width: 17.5em) {
+  .header__background .container {
+    display: grid;
+  }
+}
+@media only screen and (min-width: 37.5em) {
+  .header__background .container {
+    display: grid;
+  }
 }
 @media only screen and (min-width: 24.375em) {
   .header__background {
@@ -881,7 +1014,8 @@ body:before {
 }
 @media only screen and (min-width: 37.5em) {
   .header__bottom {
-    row-gap: 2rem;
+    row-gap: 0.5rem;
+    grid-row: 2;
   }
 }
 .header__buttons {
@@ -896,7 +1030,7 @@ body:before {
 @media only screen and (min-width: 37.5em) {
   .header__buttons {
     column-gap: 3rem;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 30rem 1fr;
     max-width: 100%;
   }
 }
@@ -913,24 +1047,57 @@ body:before {
 }
 .header__nav-links {
   display: none;
+  position: relative;
 }
 @media only screen and (min-width: 37.5em) {
   .header__nav-links {
-    grid-column: 2;
-    grid-row: 1/span 2;
-    justify-self: end;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10000;
+    padding: 5rem 3rem;
+    height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     list-style: none;
+    background: linear-gradient(to top, rgba(98, 108, 255, 0.9), rgba(9, 3, 51, 0.9));
+    transform: translateX(100%);
+    transition: 0.3s all cubic-bezier(0.65, 0.28, 0.06, 0.97);
+    visibility: hidden;
+    opacity: 0;
+  }
+  .header__nav-links--active {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@media only screen and (min-width: 37.5em) {
+  .header__nav-link-item:not(:last-child) {
+    margin-bottom: 1.5rem;
   }
 }
 .header__nav-link-item:not(:last-child) {
   margin-right: 1.5rem;
 }
+@media only screen and (min-width: 37.5em) {
+  .header__nav-link-item:not(:last-child) {
+    margin-right: 0;
+  }
+}
 .header__nav-link:visited, .header__nav-link:link {
   display: inline-block;
+  padding: 1.5rem 3rem;
   text-decoration: none;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
+  color: #fff;
+  border-radius: 100px;
+  transition: all 0.2s ease-in;
+}
+.header__nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 .header__info {
   display: grid;
@@ -967,28 +1134,40 @@ body:before {
 
 .header__indent {
   position: relative;
-  margin-bottom: 5.5rem;
+  display: flex;
+  justify-content: center;
+  margin: 5.5rem 0;
+  margin-top: 3.5rem;
 }
 @media only screen and (min-width: 37.5em) {
   .header__indent {
     margin-bottom: 0;
+    justify-content: flex-start;
+    grid-row: 3;
   }
 }
-.header__indent::after {
-  content: "";
-  position: absolute;
-  top: -150%;
-  left: 0;
-  display: block;
-  width: 100%;
-  height: 200%;
-  background-image: url("../../img/header/dashes.png");
-  background-repeat: no-repeat;
-  background-position: bottom 0 right -3rem;
-  background-size: cover;
-  transform-origin: center;
-  transform: translate(0, 50%);
-  z-index: -1;
+@media only screen and (min-width: 17.5em) {
+  .header__indent::after {
+    content: "";
+    position: absolute;
+    top: -150%;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 200%;
+    background-image: url("../../img/header/dashes.png");
+    background-repeat: no-repeat;
+    background-position: bottom 0 right -3rem;
+    background-size: cover;
+    transform-origin: center;
+    transform: translate(0, 50%);
+    z-index: -1;
+  }
+}
+@media only screen and (min-width: 37.5em) {
+  .header__indent::after {
+    background: none;
+  }
 }
 
 .daily-payouts__background {

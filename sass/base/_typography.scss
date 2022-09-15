@@ -58,6 +58,11 @@
     font-size: 1.4rem;
     color: $color-blue-light-1;
 
+    @include respond(bp-medium) {
+        font-size: 1.6rem;
+        letter-spacing: 0.05em;
+    }
+
     &--adjust {
         max-width: 20rem;
 
@@ -80,13 +85,18 @@
     font-weight: 700;
     text-transform: uppercase;
 
+    @include respond(bp-medium) {
+        font-size: 3rem;
+        margin-bottom: 4rem;
+    }
+
     &--adjust {
         @include respond(bp-small) {
             max-width: 35rem;
         }
 
         @include respond(bp-medium) {
-            max-width: 40rem;
+            max-width: 45rem;
         }
     }
 }

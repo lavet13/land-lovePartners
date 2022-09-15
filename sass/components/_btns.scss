@@ -34,13 +34,13 @@
 
     &--dark {
         border: 1px solid $color-white;
-        background: transparent;
-        color: $color-purple;
+        background: transparent !important;
+        color: $color-purple !important;
 
         &:hover {
             border: 1px solid $color-white;
-            color: $color-blue-dark;
-            background: $color-white;
+            color: $color-blue-dark !important;
+            background: $color-white !important;
             filter: saturate(2);
         }
     }
@@ -75,7 +75,7 @@
 
             &:after {
                 background: $color-white;
-                transform: scaleX(1.4) scaleY(1.6);
+                transform: scaleX(1.1) scaleY(1.6);
                 opacity: 0;
             }
         }
@@ -155,5 +155,107 @@
 
     &:after {
         background-color: $color-purple;
+    }
+}
+
+.dropdown-btn {
+    display: none;
+    position: relative;
+
+    @include respond(bp-medium) {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        z-index: 10000;
+
+        display: inline-block;
+        width: 5rem;
+        height: 5rem;
+
+        border: 0;
+        background: $color-purple;
+        border-radius: 100px;
+        cursor: pointer;
+
+        transition: 0.2s all cubic-bezier(0.06, 0.25, 0.37, 0.94);
+
+        &:hover {
+            filter: drop-shadow(0 0 0.3rem $color-purple) contrast(1.5);
+            transform: translateY(-1px);
+        }
+
+        &:active {
+            transform: translateY(0) scale(0.95);
+        }
+
+        &:after {
+            content: '';
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 20px;
+            height: 2px;
+            background-color: $color-white;
+
+            transition: 0.2s all ease-in;
+        }
+    }
+
+    %spanLine {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 20px;
+        height: 2px;
+        background-color: $color-white;
+    }
+
+    span {
+        &:after,
+        &:before {
+            content: '';
+            display: block;
+            transition: 0.2s all ease-in;
+        }
+
+        &:after {
+            @extend %spanLine;
+            transform: translate(-50%, 250%);
+        }
+
+        &:before {
+            @extend %spanLine;
+            transform: translate(-50%, -300%);
+        }
+    }
+
+    &--active span:before {
+        transform: translate(-50%, 50%) rotate(45deg);
+    }
+
+    &--active span:after {
+        transform: translate(-50%, 50%) rotate(-45deg);
+    }
+
+    &--active:after {
+        transform: translate(100%, -50%);
+        opacity: 0;
+    }
+
+    &--active {
+        transform: scale(0.75);
+
+        &:hover {
+            transform: translateY(-1px) scale(0.75);
+        }
+
+        &:active {
+            transform: translateY(0) scale(0.75);
+        }
     }
 }

@@ -1,10 +1,6 @@
 'use strict';
 
 window.addEventListener('DOMContentLoaded', () => {
-    // ELEMENTS
-    const dropDownButton = document.querySelector('.dropdown-btn');
-    const navLinksContainer = document.querySelector('.header__nav-links');
-    const potentialBoxes = document.querySelectorAll('.potential-box');
     const overlay = document.querySelector('.overlay');
 
     const getBreakpoint = function () {
@@ -12,8 +8,6 @@ window.addEventListener('DOMContentLoaded', () => {
             .getComputedStyle(document.body, ':before')
             .content.replace(/\"/g, '');
     };
-
-    const breakpoints = ['none', 'very small', 'small', 'medium', 'large'];
 
     const headerIndent = document.querySelector('.header__indent');
 
@@ -63,38 +57,72 @@ window.addEventListener('DOMContentLoaded', () => {
     ///////////////////////////////////////////////
     // DROP_DOWN_BUTTON
 
-    dropDownButton.addEventListener('click', e => {
-        if (e.currentTarget.classList.contains('dropdown-btn--active')) {
-            e.currentTarget.classList.remove('dropdown-btn--active');
-            navLinksContainer.classList.remove('header__nav-links--active');
-            document.body.style.overflow = '';
-        } else {
-            e.currentTarget.classList.add('dropdown-btn--active');
-            navLinksContainer.classList.add('header__nav-links--active');
-            document.body.style.overflow = 'hidden';
-        }
-    });
+    const dropDownNavLinks = function ({ dropDownButton, navLinksContainer }) {
+        dropDownButton.addEventListener('click', e => {
+            if (e.currentTarget.classList.contains('dropdown-btn--active')) {
+                e.currentTarget.classList.remove('dropdown-btn--active');
+                navLinksContainer.classList.remove('header__nav-links--active');
+                document.body.style.overflow = '';
+            } else {
+                e.currentTarget.classList.add('dropdown-btn--active');
+                navLinksContainer.classList.add('header__nav-links--active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    };
 
     /////////////////////////////////////////////////
     // Reveal elements on scroll
 
-    const revealPotentialBox = function (entries, observer) {
-        const [entry] = entries;
+    const observePotentialBoxes = function ({ potentialBoxes }) {
+        const revealPotentialBox = function (entries, observer) {
+            const [entry] = entries;
 
-        if (!entry.isIntersecting) return;
+            if (!entry.isIntersecting) return;
 
-        entry.target.classList.remove('potential-box--hidden');
+            entry.target.classList.remove('potential-box--hidden');
 
-        observer.unobserve(entry.target);
+            observer.unobserve(entry.target);
+        };
+
+        const potentialBoxObserver = new IntersectionObserver(
+            revealPotentialBox,
+            {
+                root: null,
+                threshold: 0.42,
+            }
+        );
+
+        potentialBoxes.forEach(box => {
+            potentialBoxObserver.observe(box);
+            box.classList.add('potential-box--hidden');
+        });
     };
 
-    const potentialBoxObserver = new IntersectionObserver(revealPotentialBox, {
-        root: null,
-        threshold: 0.42,
+    // INVOKING THE FUNCTIONS
+    dropDownNavLinks({
+        dropDownButton: document.querySelector('.dropdown-btn'),
+        navLinksContainer: document.querySelector('.header__nav-links'),
     });
 
-    potentialBoxes.forEach(box => {
-        potentialBoxObserver.observe(box);
-        box.classList.add('potential-box--hidden');
+    observePotentialBoxes({
+        potentialBoxes: document.querySelectorAll('.potential-box'),
     });
+
+    ///////////////////////////////////////////////////
+    // Close Nav Links
+    const navLinksContainer = document.querySelector('.header__nav-links');
+    const dropDownBtn = document.querySelector('.dropdown-btn');
+    document.body.addEventListener('click', e => {
+        if (!navLinksContainer.matches('.header__nav-links--active')) return;
+        console.log('NONONON');
+        const isNotNavLinks = e.currentTarget.closest('.header__nav-links');
+        if (!isNotNavLinks) {
+            console.log('click');
+            dropDownBtn.classList.remove('dropdown-btn--active');
+            navLinksContainer.classList.remove('header__nav-links--active');
+        }
+    });
+
+    // overflow but below everyone
 });

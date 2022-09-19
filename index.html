@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
         <link rel="stylesheet" href="css/style.css" />
+        <script defer src="js/script.js"></script>
     </head>
     <body>
         <div class="header__background">
@@ -46,28 +47,29 @@
                             >
                         </div>
                     </div>
-
-                    <ul class="header__nav-links">
-                        <li class="header__nav-link-item">
-                            <a href="#" class="header__nav-link">Вход</a>
-                        </li>
-                        <li class="header__nav-link-item">
-                            <a
-                                href="#"
-                                class="header__btn header__btn--dark header__nav-link"
-                                >Регистрация</a
-                            >
-                        </li>
-                        <li class="header__nav-link-item">
-                            <a href="#" class="header__nav-link">RU</a>
-                        </li>
-                    </ul>
                 </header>
             </div>
-            <button class="dropdown-btn">
-                <span></span>
-            </button>
         </div>
+
+        <button class="dropdown-btn">
+            <span></span>
+        </button>
+
+        <ul class="header__nav-links">
+            <li class="header__nav-link-item">
+                <a href="#" class="header__nav-link">Вход</a>
+            </li>
+            <li class="header__nav-link-item">
+                <a
+                    href="#"
+                    class="header__btn header__btn--dark header__nav-link"
+                    >Регистрация</a
+                >
+            </li>
+            <li class="header__nav-link-item">
+                <a href="#" class="header__nav-link">RU</a>
+            </li>
+        </ul>
 
         <div class="header__indent">
             <div class="header__info">
@@ -166,8 +168,30 @@
 
         <div class="daily-payouts__background">
             <div class="daily-payouts container">
-                <h1 class="daily-payouts__big-text color--white">
-                    ежедневные выплаты
+                <h1
+                    class="daily-payouts__big-text color--white daily-payouts__big-text--flex"
+                >
+                    <div class="daily-payouts__big-text--flex">
+                        <span>е</span>
+                        <span>ж</span>
+                        <span>е</span>
+                        <span>д</span>
+                        <span>н</span>
+                        <span>е</span>
+                        <span>в</span>
+                        <span>н</span>
+                        <span>ы</span>
+                        <span class="daily-payouts__big-text--gap">е</span>
+                    </div>
+                    <div class="daily-payouts__big-text--flex">
+                        <span>в</span>
+                        <span>ы</span>
+                        <span>п</span>
+                        <span>л</span>
+                        <span>а</span>
+                        <span>т</span>
+                        <span>ы</span>
+                    </div>
                 </h1>
                 <p class="daily-payouts__medium-text">
                     При заказе выплаты в тот же день
@@ -339,7 +363,5 @@
         </footer>
 
         <div class="overlay hidden"></div>
-
-        <script src="js/script.js"></script>
     </body>
 </html>

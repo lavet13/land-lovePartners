@@ -68,3 +68,13 @@
     padding: 3rem 1rem;
     background-color: $color-pink;
 }
+
+// OBSERVE
+.element--hidden {
+    opacity: 0;
+    transform: translateY(8rem);
+}
+
+.transition-reveal {
+    transition: 1s all;
+}

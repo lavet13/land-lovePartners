@@ -160,6 +160,24 @@
     text-align: center;
     letter-spacing: 0.03em;
 
+    &--gap {
+        margin-right: 1rem;
+    }
+
+    &--flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        @include respond(bp-smaller) {
+            margin-bottom: 1rem;
+        }
+
+        @include respond(bp-medium) {
+            margin-bottom: 0;
+        }
+    }
+
     @include respond(bp-smaller) {
         font-size: 3rem;
     }

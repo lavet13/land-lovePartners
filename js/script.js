@@ -73,14 +73,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
     /////////////////////////////////////////////////
     // Reveal elements on scroll
+    const addTransition = function (element) {
+        element.classList.add('transition-reveal');
+    };
 
+    // POTENTIAL BOXES
     const observePotentialBoxes = function ({ potentialBoxes }) {
         const revealPotentialBox = function (entries, observer) {
             const [entry] = entries;
 
             if (!entry.isIntersecting) return;
 
-            entry.target.classList.remove('potential-box--hidden');
+            entry.target.classList.remove('element--hidden');
 
             observer.unobserve(entry.target);
         };
@@ -95,7 +99,76 @@ window.addEventListener('DOMContentLoaded', () => {
 
         potentialBoxes.forEach(box => {
             potentialBoxObserver.observe(box);
-            box.classList.add('potential-box--hidden');
+            box.classList.add('element--hidden');
+        });
+    };
+
+    // DAILY-PAYOUTS
+    const observeDailyPayouts = function ({
+        dailyPayoutsChildren,
+        dailyPayoutsTextSpan,
+    }) {
+        dailyPayoutsChildren = dailyPayoutsChildren.filter(
+            el => !el.matches('.daily-payouts__big-text')
+        );
+        dailyPayoutsChildren.forEach(element => {
+            addTransition(element);
+        });
+
+        console.log(dailyPayoutsTextSpan);
+
+        dailyPayoutsTextSpan.forEach((el, i) => {
+            console.log(i);
+            el.style.transform = `translateY(${i * 5}px)`;
+            el.style.transition = `all `;
+        });
+
+        const revealDailyPayouts = function (entries, observer) {
+            const [entry] = entries;
+
+            if (!entry.isIntersecting) return;
+
+            entry.target.classList.remove('element--hidden');
+
+            observer.unobserve(entry.target);
+        };
+
+        const observeDailyPayouts = new IntersectionObserver(
+            revealDailyPayouts,
+            {
+                root: null,
+                threshold: 0.15,
+            }
+        );
+
+        dailyPayoutsChildren.forEach(element => {
+            observeDailyPayouts.observe(element);
+            element.classList.add('element--hidden');
+        });
+    };
+
+    const observePayments = function ({ paymentsChildren }) {
+        paymentsChildren.forEach(element => {
+            addTransition(element);
+        });
+        const revealPayments = function (entries, observer) {
+            const [entry] = entries;
+
+            if (!entry.isIntersecting) return;
+
+            entry.target.classList.remove('element--hidden');
+
+            observer.unobserve(entry.target);
+        };
+
+        const observePayments = new IntersectionObserver(revealPayments, {
+            root: null,
+            threshold: 0.1,
+        });
+
+        paymentsChildren.forEach(element => {
+            observePayments.observe(element);
+            element.classList.add('element--hidden');
         });
     };
 
@@ -109,20 +182,18 @@ window.addEventListener('DOMContentLoaded', () => {
         potentialBoxes: document.querySelectorAll('.potential-box'),
     });
 
-    ///////////////////////////////////////////////////
-    // Close Nav Links
-    const navLinksContainer = document.querySelector('.header__nav-links');
-    const dropDownBtn = document.querySelector('.dropdown-btn');
-    document.body.addEventListener('click', e => {
-        if (!navLinksContainer.matches('.header__nav-links--active')) return;
-        console.log('NONONON');
-        const isNotNavLinks = e.currentTarget.closest('.header__nav-links');
-        if (!isNotNavLinks) {
-            console.log('click');
-            dropDownBtn.classList.remove('dropdown-btn--active');
-            navLinksContainer.classList.remove('header__nav-links--active');
-        }
+    observeDailyPayouts({
+        dailyPayoutsChildren: Array.from(
+            document.querySelector('.daily-payouts').children
+        ),
+        dailyPayoutsTextSpan: document.querySelectorAll(
+            '.daily-payouts__big-text--flex span'
+        ),
     });
 
-    // overflow but below everyone
+    observePayments({
+        paymentsChildren: Array.from(
+            document.querySelector('.payments').children
+        ),
+    });
 });

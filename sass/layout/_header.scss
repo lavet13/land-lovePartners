@@ -126,10 +126,9 @@
 
     &__nav-links {
         display: none;
-        position: relative;
 
         @include respond(bp-medium) {
-            position: absolute;
+            position: fixed;
             top: 0;
             right: 0;
             z-index: 10000;

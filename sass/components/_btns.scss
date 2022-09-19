@@ -160,15 +160,14 @@
 
 .dropdown-btn {
     display: none;
-    position: relative;
 
     @include respond(bp-medium) {
-        position: absolute;
+        position: fixed;
         top: 2rem;
         right: 2rem;
-        z-index: 10000;
+        z-index: 100000;
 
-        display: inline-block;
+        display: block;
         width: 5rem;
         height: 5rem;
 
@@ -189,8 +188,6 @@
         }
 
         &:after {
-            content: '';
-
             position: absolute;
             top: 50%;
             left: 50%;
@@ -200,6 +197,7 @@
             height: 2px;
             background-color: $color-white;
 
+            content: '';
             transition: 0.2s all ease-in;
         }
     }
@@ -210,17 +208,17 @@
         left: 50%;
         transform: translate(-50%, -50%);
 
+        display: block;
         width: 20px;
         height: 2px;
         background-color: $color-white;
+        transition: 0.2s all ease-in;
     }
 
     span {
         &:after,
         &:before {
             content: '';
-            display: block;
-            transition: 0.2s all ease-in;
         }
 
         &:after {
@@ -235,11 +233,11 @@
     }
 
     &--active span:before {
-        transform: translate(-50%, 50%) rotate(45deg);
+        transform: translate(-50%, -50%) rotate(-45deg);
     }
 
     &--active span:after {
-        transform: translate(-50%, 50%) rotate(-45deg);
+        transform: translate(-50%, -50%) rotate(45deg);
     }
 
     &--active:after {
@@ -248,14 +246,14 @@
     }
 
     &--active {
-        transform: scale(0.75);
+        transform: scale(0.9);
 
         &:hover {
-            transform: translateY(-1px) scale(0.75);
+            transform: translateY(-1px) scale(0.88);
         }
 
         &:active {
-            transform: translateY(0) scale(0.75);
+            transform: translateY(0) scale(0.86);
         }
     }
 }

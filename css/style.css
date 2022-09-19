@@ -256,6 +256,24 @@ body:before {
   text-align: center;
   letter-spacing: 0.03em;
 }
+.daily-payouts__big-text--gap {
+  margin-right: 1rem;
+}
+.daily-payouts__big-text--flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@media only screen and (min-width: 17.5em) {
+  .daily-payouts__big-text--flex {
+    margin-bottom: 1rem;
+  }
+}
+@media only screen and (min-width: 37.5em) {
+  .daily-payouts__big-text--flex {
+    margin-bottom: 0;
+  }
+}
 @media only screen and (min-width: 17.5em) {
   .daily-payouts__big-text {
     font-size: 3rem;
@@ -615,15 +633,14 @@ body:before {
 
 .dropdown-btn {
   display: none;
-  position: relative;
 }
 @media only screen and (min-width: 37.5em) {
   .dropdown-btn {
-    position: absolute;
+    position: fixed;
     top: 2rem;
     right: 2rem;
-    z-index: 10000;
-    display: inline-block;
+    z-index: 100000;
+    display: block;
     width: 5rem;
     height: 5rem;
     border: 0;
@@ -640,7 +657,6 @@ body:before {
     transform: translateY(0) scale(0.95);
   }
   .dropdown-btn:after {
-    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -648,6 +664,7 @@ body:before {
     width: 20px;
     height: 2px;
     background-color: #fff;
+    content: "";
     transition: 0.2s all ease-in;
   }
 }
@@ -656,14 +673,14 @@ body:before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: block;
   width: 20px;
   height: 2px;
   background-color: #fff;
+  transition: 0.2s all ease-in;
 }
 .dropdown-btn span:after, .dropdown-btn span:before {
   content: "";
-  display: block;
-  transition: 0.2s all ease-in;
 }
 .dropdown-btn span:after {
   transform: translate(-50%, 250%);
@@ -672,23 +689,23 @@ body:before {
   transform: translate(-50%, -300%);
 }
 .dropdown-btn--active span:before {
-  transform: translate(-50%, 50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 .dropdown-btn--active span:after {
-  transform: translate(-50%, 50%) rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 .dropdown-btn--active:after {
   transform: translate(100%, -50%);
   opacity: 0;
 }
 .dropdown-btn--active {
-  transform: scale(0.75);
+  transform: scale(0.9);
 }
 .dropdown-btn--active:hover {
-  transform: translateY(-1px) scale(0.75);
+  transform: translateY(-1px) scale(0.88);
 }
 .dropdown-btn--active:active {
-  transform: translateY(0) scale(0.75);
+  transform: translateY(0) scale(0.86);
 }
 
 .daily-payouts {
@@ -823,10 +840,6 @@ body:before {
   .potential-box {
     background: url("../../img/potential/justAHouse.png") no-repeat top center/35rem;
   }
-}
-.potential-box--hidden {
-  opacity: 0;
-  transform: translateY(8rem);
 }
 .potential-figure-img {
   display: flex;
@@ -1047,11 +1060,10 @@ body:before {
 }
 .header__nav-links {
   display: none;
-  position: relative;
 }
 @media only screen and (min-width: 37.5em) {
   .header__nav-links {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     z-index: 10000;
@@ -1200,6 +1212,15 @@ body:before {
 .footer-background {
   padding: 3rem 1rem;
   background-color: #2d036a;
+}
+
+.element--hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
+
+.transition-reveal {
+  transition: 1s all;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -67,6 +67,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const overlay = document.querySelector('.overlay');
 
     const openModal = function (...array) {
+        event.preventDefault();
         const [modal, overlay] = array;
         if (modal.classList.contains('hidden')) {
             modal.classList.remove('hidden');
@@ -80,6 +81,7 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     const closeModal = function (...array) {
+        event.preventDefault();
         const [modal, overlay] = array;
 
         if (!modal.classList.contains('hidden')) {

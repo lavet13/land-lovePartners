@@ -1,8 +1,6 @@
 'use strict';
 
 window.addEventListener('DOMContentLoaded', () => {
-    const overlay = document.querySelector('.overlay');
-
     const getBreakpoint = function () {
         return window
             .getComputedStyle(document.body, ':before')
@@ -52,6 +50,59 @@ window.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('resize', () => {
         cssApply(getBreakpoint());
+    });
+
+    ///////////////////////////////////////////////
+    // Open and Close Modal
+    const signupBtns = document.querySelectorAll('.header__btn--signup');
+    const registerBtns = document.querySelectorAll('.header__btn--register');
+    const modalReg = document.querySelector('.modal--registration');
+    const modalSign = document.querySelector('.modal--signup');
+    const buttonCloseRegistration = document.querySelector(
+        '.modal__btn-close--registration'
+    );
+    const buttonCloseSignup = document.querySelector(
+        '.modal__btn-close--signup'
+    );
+    const overlay = document.querySelector('.overlay');
+
+    const openModal = function (...array) {
+        const [modal, overlay] = array;
+        if (modal.classList.contains('hidden')) {
+            modal.classList.remove('hidden');
+            overlay.classList.remove('hidden');
+            document.body.overflow = 'hidden';
+        } else {
+            modal.classList.add('hidden');
+            overlay.classList.add('hidden');
+            document.body.overflow = '';
+        }
+    };
+
+    const closeModal = function (...array) {
+        const [modal, overlay] = array;
+
+        if (!modal.classList.contains('hidden')) {
+            modal.classList.add('hidden');
+            overlay.classList.add('hidden');
+        }
+    };
+
+    buttonCloseRegistration.addEventListener(
+        'click',
+        closeModal.bind(null, modalReg, overlay)
+    );
+    buttonCloseSignup.addEventListener(
+        'click',
+        closeModal.bind(null, modalSign, overlay)
+    );
+
+    signupBtns.forEach(btn => {
+        btn.addEventListener('click', openModal.bind(null, modalSign, overlay));
+    });
+
+    registerBtns.forEach(btn => {
+        btn.addEventListener('click', openModal.bind(null, modalReg, overlay));
     });
 
     ///////////////////////////////////////////////
@@ -106,7 +157,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // DAILY-PAYOUTS
     const observeDailyPayouts = function ({
         dailyPayoutsChildren,
-        dailyPayoutsTextSpan,
+        dailyPayoutsText,
     }) {
         dailyPayoutsChildren = dailyPayoutsChildren.filter(
             el => !el.matches('.daily-payouts__big-text')
@@ -115,20 +166,20 @@ window.addEventListener('DOMContentLoaded', () => {
             addTransition(element);
         });
 
-        console.log(dailyPayoutsTextSpan);
-
-        dailyPayoutsTextSpan.forEach((el, i) => {
-            console.log(i);
-            el.style.transform = `translateY(${i * 5}px)`;
-            el.style.transition = `all `;
-        });
-
         const revealDailyPayouts = function (entries, observer) {
             const [entry] = entries;
 
             if (!entry.isIntersecting) return;
 
             entry.target.classList.remove('element--hidden');
+
+            if (entry.target.matches('.daily-payouts__big-text')) {
+                entry.target
+                    .querySelectorAll('.daily-payouts__big-text--flex span')
+                    .forEach(letter => {
+                        letter.classList.add('letter--visible');
+                    });
+            }
 
             observer.unobserve(entry.target);
         };
@@ -141,10 +192,30 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         );
 
+        const observeDailyPayoutsSpanText = new IntersectionObserver(
+            revealDailyPayouts,
+            {
+                root: null,
+                threshold: 0,
+            }
+        );
+
         dailyPayoutsChildren.forEach(element => {
             observeDailyPayouts.observe(element);
             element.classList.add('element--hidden');
         });
+
+        let count = 0;
+
+        observeDailyPayoutsSpanText.observe(dailyPayoutsText);
+
+        dailyPayoutsText
+            .querySelectorAll('.daily-payouts__big-text--flex span')
+            .forEach((letter, i) => {
+                letter.style.opacity = '0';
+                letter.style.transform = `translateY(${i * 5}px)`;
+                letter.style.transition = `all 0.2s ${(count = count + 0.08)}s`;
+            });
     };
 
     const observePayments = function ({ paymentsChildren }) {
@@ -186,9 +257,7 @@ window.addEventListener('DOMContentLoaded', () => {
         dailyPayoutsChildren: Array.from(
             document.querySelector('.daily-payouts').children
         ),
-        dailyPayoutsTextSpan: document.querySelectorAll(
-            '.daily-payouts__big-text--flex span'
-        ),
+        dailyPayoutsText: document.querySelector('.daily-payouts__big-text'),
     });
 
     observePayments({

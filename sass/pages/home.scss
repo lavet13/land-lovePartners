@@ -75,6 +75,11 @@
     transform: translateY(8rem);
 }
 
+.letter--visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
 .transition-reveal {
     transition: 1s all;
 }

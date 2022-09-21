@@ -16,6 +16,10 @@
 html {
     box-sizing: border-box;
     font-size: 62.5%; // 1rem = 10px; (10px / 16px (default font-size of the browser)) * 100 = 62.5%
+
+    @include respond(bp-largest) {
+        font-size: 80%;
+    }
 }
 
 body {

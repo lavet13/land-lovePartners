@@ -57,12 +57,14 @@
 
         <ul class="header__nav-links">
             <li class="header__nav-link-item">
-                <a href="#" class="header__nav-link">Вход</a>
+                <a href="#" class="header__nav-link header__btn--signup"
+                    >Вход</a
+                >
             </li>
             <li class="header__nav-link-item">
                 <a
                     href="#"
-                    class="header__btn header__btn--dark header__nav-link"
+                    class="header__btn header__btn--dark header__nav-link header__btn--register"
                     >Регистрация</a
                 >
             </li>
@@ -292,7 +294,9 @@
                         alt=""
                         class="support__img"
                     />
-                    <button class="support__button btn-white">
+                    <button
+                        class="support__button btn-white header__btn--signup"
+                    >
                         Начать зарабатывать
                     </button>
                 </div>
@@ -361,6 +365,66 @@
                 </div>
             </div>
         </footer>
+
+        <div class="modal modal--registration hidden">
+            <button class="modal__btn-close modal__btn-close--registration">
+                &times;
+            </button>
+            <h1 class="modal__heading">Регистрация</h1>
+            <form class="modal__form">
+                <input
+                    type="type"
+                    id="nameReg"
+                    placeholder="Введите имя"
+                    required
+                />
+                <input
+                    type="email"
+                    id="emailReg"
+                    placeholder="Введите E-mail"
+                    required
+                />
+                <input
+                    type="password"
+                    id="passReg"
+                    placeholder="Введите пароль"
+                    required
+                />
+                <input
+                    type="password"
+                    id="repeatReg"
+                    placeholder="Введите повторно пароль"
+                    required
+                />
+                <button class="modal__btn-submit header__btn header__btn-dark">
+                    Зарегистрироваться
+                </button>
+            </form>
+        </div>
+
+        <div class="modal modal--signup hidden">
+            <button class="modal__btn-close modal__btn-close--signup">
+                &times;
+            </button>
+            <h1 class="modal__heading">Вход? да вход</h1>
+            <form class="modal__form">
+                <input
+                    type="email"
+                    id="emailSign"
+                    placeholder="Введите E-mail"
+                    required
+                />
+                <input
+                    type="password"
+                    id="passSign"
+                    placeholder="Введите пароль"
+                    required
+                />
+                <button class="modal__btn-submit header__btn header__btn-dark">
+                    Войти
+                </button>
+            </form>
+        </div>
 
         <div class="overlay hidden"></div>
     </body>

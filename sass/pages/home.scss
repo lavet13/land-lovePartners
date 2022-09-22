@@ -83,3 +83,7 @@
 .transition-reveal {
     transition: 1s all;
 }
+
+.lazy-img {
+    filter: blur(4px);
+}

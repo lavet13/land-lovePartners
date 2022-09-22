@@ -98,6 +98,11 @@ window.addEventListener('DOMContentLoaded', () => {
         'click',
         closeModal.bind(null, modalSign, overlay)
     );
+    overlay.addEventListener(
+        'click',
+        closeModal.bind(null, modalSign, overlay)
+    );
+    overlay.addEventListener('click', closeModal.bind(null, modalReg, overlay));
 
     signupBtns.forEach(btn => {
         btn.addEventListener('click', openModal.bind(null, modalSign, overlay));
@@ -128,6 +133,27 @@ window.addEventListener('DOMContentLoaded', () => {
     // Reveal elements on scroll
     const addTransition = function (element) {
         element.classList.add('transition-reveal');
+    };
+
+    /////////////////////////////////////////////////
+    // Reveal Text
+    const setSpanStyles = function (element) {
+        let count = 0;
+        element
+            .querySelectorAll('div.daily-payouts__big-text--flex span')
+            .forEach((span, i) => {
+                span.style.opacity = 0;
+                span.style.transform = `translateY(${i * 5}px)`;
+                span.style.transition = `all 0.2s ${(count = count + 0.08)}s`;
+            });
+    };
+
+    const revealLetters = function (element) {
+        element
+            .querySelectorAll('div.daily-payouts__big-text--flex span')
+            .forEach(span => {
+                span.classList.add('letter--visible');
+            });
     };
 
     // POTENTIAL BOXES
@@ -176,11 +202,7 @@ window.addEventListener('DOMContentLoaded', () => {
             entry.target.classList.remove('element--hidden');
 
             if (entry.target.matches('.daily-payouts__big-text')) {
-                entry.target
-                    .querySelectorAll('.daily-payouts__big-text--flex span')
-                    .forEach(letter => {
-                        letter.classList.add('letter--visible');
-                    });
+                revealLetters(entry.target);
             }
 
             observer.unobserve(entry.target);
@@ -207,29 +229,32 @@ window.addEventListener('DOMContentLoaded', () => {
             element.classList.add('element--hidden');
         });
 
-        let count = 0;
-
         observeDailyPayoutsSpanText.observe(dailyPayoutsText);
 
-        dailyPayoutsText
-            .querySelectorAll('.daily-payouts__big-text--flex span')
-            .forEach((letter, i) => {
-                letter.style.opacity = '0';
-                letter.style.transform = `translateY(${i * 5}px)`;
-                letter.style.transition = `all 0.2s ${(count = count + 0.08)}s`;
-            });
+        setSpanStyles(dailyPayoutsText);
     };
 
-    const observePayments = function ({ paymentsChildren }) {
+    const observePayments = function ({
+        paymentsChildren,
+        paymentsHeaderText,
+    }) {
+        paymentsChildren = paymentsChildren.filter(
+            el => !el.matches('.payments--header')
+        );
+
         paymentsChildren.forEach(element => {
             addTransition(element);
         });
+
         const revealPayments = function (entries, observer) {
             const [entry] = entries;
 
             if (!entry.isIntersecting) return;
 
             entry.target.classList.remove('element--hidden');
+            if (entry.target.matches('.payments--header')) {
+                revealLetters(entry.target);
+            }
 
             observer.unobserve(entry.target);
         };
@@ -239,10 +264,82 @@ window.addEventListener('DOMContentLoaded', () => {
             threshold: 0.1,
         });
 
+        setSpanStyles(paymentsHeaderText);
+
+        observePayments.observe(paymentsHeaderText);
+
         paymentsChildren.forEach(element => {
             observePayments.observe(element);
             element.classList.add('element--hidden');
         });
+    };
+
+    const observeSupport = function ({ supportBoxes, supportHeaderText }) {
+        let supportBoxesElements = Array.from(supportBoxes).flatMap(box => [
+            ...box.children,
+        ]);
+
+        supportBoxesElements = supportBoxesElements.filter(
+            el => !el.matches('.support--header')
+        );
+
+        supportBoxesElements.forEach(el => addTransition(el));
+
+        const revealSupportElements = function (entries, observer) {
+            const [entry] = entries;
+
+            if (!entry.isIntersecting) return;
+
+            entry.target.classList.remove('element--hidden');
+            if (entry.target.matches('.support--header')) {
+                revealLetters(entry.target);
+            }
+
+            observer.unobserve(entry.target);
+        };
+
+        const observeSupport = new IntersectionObserver(revealSupportElements, {
+            root: null,
+            threshold: 0.1,
+        });
+
+        const observeSupportText = new IntersectionObserver(
+            revealSupportElements,
+            {
+                root: null,
+                threshold: 0,
+            }
+        );
+
+        observeSupportText.observe(supportHeaderText);
+
+        setSpanStyles(supportHeaderText);
+
+        supportBoxesElements.forEach(el => {
+            observeSupport.observe(el);
+            el.classList.add('element--hidden');
+        });
+    };
+
+    const observeAdminStuff = function ({ adminStuff }) {
+        const revealAdminStuff = function (entries, observer) {
+            const [entry] = entries;
+
+            if (!entry.isIntersecting) return;
+
+            revealLetters(entry.target);
+
+            observer.unobserve(entry.target);
+        };
+
+        const observeAdminStuff = new IntersectionObserver(revealAdminStuff, {
+            root: null,
+            threshold: 0,
+        });
+
+        observeAdminStuff.observe(adminStuff);
+
+        setSpanStyles(adminStuff);
     };
 
     // INVOKING THE FUNCTIONS
@@ -266,5 +363,15 @@ window.addEventListener('DOMContentLoaded', () => {
         paymentsChildren: Array.from(
             document.querySelector('.payments').children
         ),
+        paymentsHeaderText: document.querySelector('.payments--header'),
+    });
+
+    observeSupport({
+        supportBoxes: document.querySelectorAll('.support-box'),
+        supportHeaderText: document.querySelector('.support--header'),
+    });
+
+    observeAdminStuff({
+        adminStuff: document.querySelector('.admin-stuff'),
     });
 });

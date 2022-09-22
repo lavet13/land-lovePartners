@@ -976,8 +976,9 @@ body:before {
 }
 .support__figure-box {
   display: grid;
-  grid-column-gap: 1rem;
+  grid-column-gap: 1.2rem;
   grid-template-columns: min-content 13rem;
+  align-items: center;
 }
 @media only screen and (min-width: 17.5em) {
   .support__figure-box {
@@ -989,6 +990,11 @@ body:before {
   max-width: 100%;
   object-fit: contain;
   filter: saturate(1.2);
+}
+.support__img-check-mark {
+  max-width: none;
+  width: 15px;
+  margin-bottom: -2px;
 }
 
 .container {
@@ -1326,6 +1332,10 @@ body:before {
 
 .transition-reveal {
   transition: 1s all;
+}
+
+.lazy-img {
+  filter: blur(4px);
 }
 
 /*# sourceMappingURL=style.css.map */

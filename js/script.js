@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     const headerIndent = document.querySelector('.header__indent');
+    const navLinks = document.querySelector('.header__nav-links');
 
     const revealHeaderIndent = function () {
         if (this) {
@@ -17,31 +18,45 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    const revealNavLinks = function () {
+        if (this) {
+            document.querySelector('.header').append(navLinks);
+        } else {
+            document.querySelector('.dropdown-btn').after(navLinks);
+        }
+    };
+
     const cssApply = function (breakpoint) {
         switch (breakpoint) {
             case 'large':
                 revealHeaderIndent.call(true);
+                revealNavLinks.call(true);
                 break;
 
             case 'medium':
                 revealHeaderIndent.call(true);
+                revealNavLinks.call(true);
                 break;
 
             case 'small':
                 console.log('medium');
                 revealHeaderIndent.call(true);
+                revealNavLinks.call(true);
                 break;
 
             case 'very small':
                 revealHeaderIndent.call(false);
+                revealNavLinks.call(true);
                 break;
 
             case 'tiny':
                 revealHeaderIndent.call(false);
+                revealNavLinks.call(true);
                 break;
 
             case 'none':
                 revealHeaderIndent.call(false);
+                revealNavLinks.call(true);
                 break;
         }
     };

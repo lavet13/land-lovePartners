@@ -38,11 +38,16 @@
 }
 
 .daily-payouts__background {
+    display: grid;
     margin-bottom: 12rem;
     background: $color-pink;
 
     @include respond(bp-smaller) {
         margin-bottom: 13.5rem;
+    }
+
+    @include respond(bp-large) {
+        padding: 0 1rem;
     }
 }
 

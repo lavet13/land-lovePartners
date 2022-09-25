@@ -31,7 +31,7 @@
 
         display: grid; // wtffffffff
         background: url('../img/header/BG.png') 70% / cover no-repeat;
-        min-height: 100vh; // important btw
+        min-height: 101vh; // important btw
         padding: 2rem;
         padding-bottom: 4rem;
         margin-bottom: 3rem;
@@ -40,7 +40,6 @@
         margin: 0 auto;
 
         .container {
-            min-height: 100vh;
             display: grid;
         }
 
@@ -159,9 +158,14 @@
 
         @include respond(bp-large) {
             position: relative;
-            grid-column: 2;
-            grid-row: 1; // / span 2;
             justify-self: end;
+            transform: translateX(0);
+            padding: 0;
+            visibility: visible;
+            opacity: 1;
+            background: none;
+            flex-direction: row;
+            align-items: flex-start;
         }
     }
 
@@ -175,6 +179,10 @@
             margin-right: 1.5rem;
             @include respond(bp-medium) {
                 margin-right: 0;
+            }
+
+            @include respond(bp-large) {
+                margin-right: 1rem;
             }
         }
     }

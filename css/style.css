@@ -736,20 +736,28 @@ body:before {
 @media only screen and (min-width: 56.25em) {
   .daily-payouts {
     grid-template-columns: repeat(2, 1fr);
-    padding: 10rem 0;
+    grid-template-rows: 10rem repeat(3, auto) 10rem;
+    padding: 2rem 0;
     row-gap: 2rem;
     column-gap: 2rem;
   }
   .daily-payouts__grid--item-1 {
     grid-column: 2;
-    grid-row: 1/span 3;
+    grid-row: 1/span 5;
   }
   .daily-payouts__grid--item-1 img {
     background: radial-gradient(50% 50% at 50% 50%, rgba(242, 37, 105, 0.32) 15.06%, rgba(242, 37, 105, 0) 86.54%);
   }
   .daily-payouts__grid--item-2 {
+    grid-row: 4;
     margin: 0 2rem;
     margin-top: 2rem;
+  }
+  .daily-payouts__grid--item-3 {
+    grid-row: 3;
+  }
+  .daily-payouts__grid--item-4 {
+    grid-row: 2;
   }
 }
 .daily-payouts__grid--item-1 img:after {
@@ -795,22 +803,28 @@ body:before {
   align-items: center;
   position: relative;
   width: 100%;
-  height: 100%;
   top: 9rem;
 }
 @media only screen and (min-width: 56.25em) {
   .daily-payouts__figure-img {
     margin-top: 0;
+    top: 0;
+    justify-content: center;
   }
 }
 .daily-payouts__img {
   position: absolute;
   top: 0;
   display: block;
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
   object-fit: contain;
 }
+@media only screen and (min-width: 56.25em) {
+  .daily-payouts__img {
+    top: auto;
+  }
+}
+
 .modal {
   position: fixed;
   top: 50%;
@@ -932,7 +946,16 @@ body:before {
 }
 @media only screen and (min-width: 17.5em) {
   .payments {
-    grid-row-gap: 2.5rem;
+    row-gap: 2.5rem;
+  }
+}
+@media only screen and (min-width: 56.25em) {
+  .payments {
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    align-items: center;
+    justify-items: center;
+    column-gap: 1.5rem;
+    padding: 0 2rem;
   }
 }
 .payments__figure-box {
@@ -945,6 +968,11 @@ body:before {
 @media only screen and (min-width: 17.5em) {
   .payments__figure-box {
     grid-template-columns: min-content max-content;
+  }
+}
+@media only screen and (min-width: 56.25em) {
+  .payments--header {
+    grid-column: 1/-1;
   }
 }
 .payments__img {
@@ -1369,6 +1397,7 @@ body:before {
 @media only screen and (min-width: 56.25em) {
   .daily-payouts__background {
     padding: 0 1rem;
+    margin-bottom: 10.5rem;
   }
 }
 

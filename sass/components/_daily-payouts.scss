@@ -15,14 +15,15 @@
 
     @include respond(bp-large) {
         grid-template-columns: repeat(2, 1fr);
-        padding: 10rem 0;
+        grid-template-rows: 10rem repeat(3, auto) 10rem;
+        padding: 2rem 0;
         row-gap: 2rem;
         column-gap: 2rem;
 
         &__grid--item {
             &-1 {
                 grid-column: 2;
-                grid-row: 1 / span 3;
+                grid-row: 1 / span 5;
                 img {
                     background: radial-gradient(
                         50% 50% at 50% 50%,
@@ -33,8 +34,17 @@
             }
 
             &-2 {
+                grid-row: 4;
                 margin: 0 2rem;
                 margin-top: 2rem;
+            }
+
+            &-3 {
+                grid-row: 3;
+            }
+
+            &-4 {
+                grid-row: 2;
             }
         }
     }
@@ -94,7 +104,6 @@
         position: relative;
 
         width: 100%;
-        height: 100%;
         top: 9rem;
 
         @include respond(bp-smaller) {
@@ -105,6 +114,8 @@
 
         @include respond(bp-large) {
             margin-top: 0;
+            top: 0;
+            justify-content: center;
         }
     }
 
@@ -112,8 +123,7 @@
         position: absolute;
         top: 0;
         display: block;
-        width: 100%;
-        height: 100%;
+        max-width: 100%;
         object-fit: contain;
 
         @include respond(bp-smaller) {
@@ -123,6 +133,7 @@
         }
 
         @include respond(bp-large) {
+            top: auto;
         }
     }
 }

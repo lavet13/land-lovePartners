@@ -1,29 +1,43 @@
 .payments {
-  display: grid;
-  grid-auto-rows: min-content;
-  grid-row-gap: 2rem;
-  justify-content: center;
-  justify-items: center;
-
-  @include respond(bp-smaller) {
-    grid-row-gap: 2.5rem;
-  }
-
-  &__figure-box {
     display: grid;
-    grid-template-columns: min-content 13rem;
-    grid-gap: 1rem;
-    align-items: center;
-    filter: invert(1);
+    grid-auto-rows: min-content;
+    grid-row-gap: 2rem;
+    justify-content: center;
+    justify-items: center;
 
     @include respond(bp-smaller) {
-      grid-template-columns: min-content max-content;
+        row-gap: 2.5rem;
     }
-  }
 
-  &__img {
-    display: block;
-    object-fit: contain;
-    filter: saturate(0);
-  }
+    @include respond(bp-large) {
+        grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+        align-items: center;
+        justify-items: center;
+        column-gap: 1.5rem;
+        padding: 0 2rem;
+    }
+
+    &__figure-box {
+        display: grid;
+        grid-template-columns: min-content 13rem;
+        grid-gap: 1rem;
+        align-items: center;
+        filter: invert(1);
+
+        @include respond(bp-smaller) {
+            grid-template-columns: min-content max-content;
+        }
+    }
+
+    &--header {
+        @include respond(bp-large) {
+            grid-column: 1 / -1;
+        }
+    }
+
+    &__img {
+        display: block;
+        object-fit: contain;
+        filter: saturate(0);
+    }
 }

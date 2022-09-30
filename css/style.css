@@ -939,23 +939,25 @@ body:before {
 
 .payments {
   display: grid;
-  grid-auto-rows: min-content;
-  grid-row-gap: 2rem;
-  justify-content: center;
+  row-gap: 2rem;
+}
+.payments__container {
+  display: grid;
+  grid-template-columns: auto;
+  align-items: center;
   justify-items: center;
+  row-gap: 2rem;
 }
 @media only screen and (min-width: 17.5em) {
-  .payments {
+  .payments__container {
     row-gap: 2.5rem;
   }
 }
 @media only screen and (min-width: 56.25em) {
-  .payments {
-    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-    align-items: center;
-    justify-items: center;
-    column-gap: 1.5rem;
+  .payments__container {
+    grid-template-columns: repeat(auto-fill, minmax(29rem, 1fr));
     padding: 0 2rem;
+    column-gap: 1.5rem;
   }
 }
 .payments__figure-box {

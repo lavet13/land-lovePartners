@@ -257,8 +257,11 @@ window.addEventListener('DOMContentLoaded', () => {
             el => !el.matches('.payments--header')
         );
 
-        paymentsChildren.forEach(element => {
-            addTransition(element);
+        let count = 0;
+        Array.from(paymentsChildren.at(0).children).forEach((element, i) => {
+            element.style.opacity = 0;
+            element.style.transform = `translateY(${i * 10}px)`;
+            element.style.transition = `all 0.4s ${(count = count + 0.1)}s`;
         });
 
         const revealPayments = function (entries, observer) {
@@ -266,7 +269,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
             if (!entry.isIntersecting) return;
 
-            entry.target.classList.remove('element--hidden');
+            if (entry.target.matches('.payments__container')) {
+                Array.from(entry.target.children).forEach(element => {
+                    element.classList.add('letter--visible');
+                });
+            }
+
             if (entry.target.matches('.payments--header')) {
                 revealLetters(entry.target);
             }
@@ -276,7 +284,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         const observePayments = new IntersectionObserver(revealPayments, {
             root: null,
-            threshold: 0.1,
+            threshold: 0.6,
         });
 
         setSpanStyles(paymentsHeaderText);
@@ -285,7 +293,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
         paymentsChildren.forEach(element => {
             observePayments.observe(element);
-            element.classList.add('element--hidden');
         });
     };
 

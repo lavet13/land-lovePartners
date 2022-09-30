@@ -1,20 +1,23 @@
 .payments {
     display: grid;
-    grid-auto-rows: min-content;
-    grid-row-gap: 2rem;
-    justify-content: center;
-    justify-items: center;
+    row-gap: 2rem;
 
-    @include respond(bp-smaller) {
-        row-gap: 2.5rem;
-    }
-
-    @include respond(bp-large) {
-        grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    &__container {
+        display: grid;
+        grid-template-columns: auto;
         align-items: center;
         justify-items: center;
-        column-gap: 1.5rem;
-        padding: 0 2rem;
+        row-gap: 2rem;
+
+        @include respond(bp-smaller) {
+            row-gap: 2.5rem;
+        }
+
+        @include respond(bp-large) {
+            grid-template-columns: repeat(auto-fill, minmax(29rem, 1fr));
+            padding: 0 2rem;
+            column-gap: 1.5rem;
+        }
     }
 
     &__figure-box {

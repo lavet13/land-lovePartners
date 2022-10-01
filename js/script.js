@@ -1,6 +1,7 @@
 'use strict';
 
 window.addEventListener('DOMContentLoaded', () => {
+    // https://gomakethings.com/the-easy-way-to-manage-css-breakpoints-in-javascript/
     const getBreakpoint = function () {
         return window
             .getComputedStyle(document.body, ':before')
@@ -41,12 +42,12 @@ window.addEventListener('DOMContentLoaded', () => {
             case 'small':
                 console.log('medium');
                 revealHeaderIndent.call(true);
-                revealNavLinks.call(true);
+                revealNavLinks.call(false);
                 break;
 
             case 'very small':
                 revealHeaderIndent.call(false);
-                revealNavLinks.call(true);
+                revealNavLinks.call(false);
                 break;
 
             case 'tiny':

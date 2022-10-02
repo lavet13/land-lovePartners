@@ -1,14 +1,30 @@
 .support {
     display: grid;
     grid-auto-rows: min-content;
-    grid-gap: 7rem;
+    gap: 7rem;
     justify-items: center;
+
+    @include respond(bp-large) {
+        justify-content: center;
+        grid-template-columns: 1fr auto;
+        column-gap: 3rem;
+    }
 
     &-box {
         display: grid;
         grid-auto-rows: min-content;
         grid-row-gap: 3rem;
         justify-items: center;
+
+        &--1 {
+            @include respond(bp-large) {
+                justify-items: start;
+
+                & > *:not(:last-child) {
+                    padding-left: 1rem;
+                }
+            }
+        }
     }
 
     &__figure-box {

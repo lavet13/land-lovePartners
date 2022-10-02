@@ -58,6 +58,9 @@
 
 .support-indent {
     margin-bottom: 6rem;
+    @include respond(bp-large) {
+        padding: 0 2rem;
+    }
 }
 
 .admin-stuff-background {

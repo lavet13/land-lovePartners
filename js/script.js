@@ -27,22 +27,34 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    const supportButton = document.getElementsByClassName('support__button');
+    const switchSupportButton = function () {
+        if (this) {
+            document.querySelector('.support-box--1').append(supportButton[0]);
+        } else {
+            document.querySelector('.support-box--2').append(supportButton[0]);
+        }
+    };
+
     const cssApply = function (breakpoint) {
         switch (breakpoint) {
             case 'large':
                 revealHeaderIndent.call(true);
                 revealNavLinks.call(true);
+                switchSupportButton.call(true);
                 break;
 
             case 'medium':
                 revealHeaderIndent.call(true);
                 revealNavLinks.call(true);
+                switchSupportButton.call(true);
                 break;
 
             case 'small':
                 console.log('medium');
                 revealHeaderIndent.call(true);
                 revealNavLinks.call(false);
+                switchSupportButton.call(false);
                 break;
 
             case 'very small':

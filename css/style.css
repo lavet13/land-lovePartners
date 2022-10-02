@@ -794,7 +794,6 @@ body:before {
   padding: 1rem 0.5rem;
   border-radius: 20px;
   border: 1px solid #fff;
-  max-width: 46rem;
 }
 .daily-payouts__figure-img {
   display: flex;
@@ -1050,14 +1049,29 @@ body:before {
 .support {
   display: grid;
   grid-auto-rows: min-content;
-  grid-gap: 7rem;
+  gap: 7rem;
   justify-items: center;
+}
+@media only screen and (min-width: 56.25em) {
+  .support {
+    justify-content: center;
+    grid-template-columns: 1fr auto;
+    column-gap: 3rem;
+  }
 }
 .support-box {
   display: grid;
   grid-auto-rows: min-content;
   grid-row-gap: 3rem;
   justify-items: center;
+}
+@media only screen and (min-width: 56.25em) {
+  .support-box--1 {
+    justify-items: start;
+  }
+  .support-box--1 > *:not(:last-child) {
+    padding-left: 1rem;
+  }
 }
 .support__figure-box {
   display: grid;
@@ -1409,6 +1423,11 @@ body:before {
 
 .support-indent {
   margin-bottom: 6rem;
+}
+@media only screen and (min-width: 56.25em) {
+  .support-indent {
+    padding: 0 2rem;
+  }
 }
 
 .admin-stuff-background {

@@ -96,15 +96,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const openModal = function (...array) {
         event.preventDefault();
+
         const [modal, overlay] = array;
         if (modal.classList.contains('hidden')) {
             modal.classList.remove('hidden');
             overlay.classList.remove('hidden');
-            document.body.overflow = 'hidden';
-        } else {
-            modal.classList.add('hidden');
-            overlay.classList.add('hidden');
-            document.body.overflow = '';
+            document.body.style.overflow = 'hidden';
         }
     };
 
@@ -115,6 +112,12 @@ window.addEventListener('DOMContentLoaded', () => {
         if (!modal.classList.contains('hidden')) {
             modal.classList.add('hidden');
             overlay.classList.add('hidden');
+            if (
+                !document
+                    .querySelector('.header__nav-links')
+                    .classList.contains('header__nav-links--active')
+            )
+                document.body.style.overflow = '';
         }
     };
 
@@ -122,14 +125,17 @@ window.addEventListener('DOMContentLoaded', () => {
         'click',
         closeModal.bind(null, modalReg, overlay)
     );
+
     buttonCloseSignup.addEventListener(
         'click',
         closeModal.bind(null, modalSign, overlay)
     );
+
     overlay.addEventListener(
         'click',
         closeModal.bind(null, modalSign, overlay)
     );
+
     overlay.addEventListener('click', closeModal.bind(null, modalReg, overlay));
 
     signupBtns.forEach(btn => {

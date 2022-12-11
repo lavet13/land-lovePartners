@@ -1048,20 +1048,19 @@ body:before {
 
 .support {
   display: grid;
-  grid-auto-rows: min-content;
   gap: 7rem;
   justify-items: center;
+  min-height: 45rem;
 }
 @media only screen and (min-width: 56.25em) {
   .support {
     justify-content: center;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 60vw 1fr;
     column-gap: 3rem;
   }
 }
 .support-box {
   display: grid;
-  grid-auto-rows: min-content;
   grid-row-gap: 3rem;
   justify-items: center;
 }
@@ -1086,7 +1085,7 @@ body:before {
 }
 .support__img {
   display: block;
-  max-width: 100%;
+  max-width: 150%;
   object-fit: contain;
   filter: saturate(1.2);
 }

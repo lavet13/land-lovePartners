@@ -173,6 +173,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // Reveal Text
     const setSpanStyles = function (element) {
         let count = 0;
+
         element
             .querySelectorAll('div.daily-payouts__big-text--flex span')
             .forEach((span, i) => {
@@ -183,23 +184,51 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     const revealLetters = function (element) {
-        element
-            .querySelectorAll('div.daily-payouts__big-text--flex span')
-            .forEach(span => {
-                span.classList.add('letter--visible');
-            });
+        element.querySelectorAll('span').forEach(span => {
+            span.classList.add('letter--visible');
+        });
     };
 
     // POTENTIAL BOXES
-    const observePotentialBoxes = function ({ potentialBoxes }) {
-        const revealPotentialBox = function (entries, observer) {
-            const [entry] = entries;
+    const renderError = function () {};
+    const changeImage = function (img) {
+        return new Promise((resolve, reject) => {
+            img.src = img.dataset.src;
 
-            if (!entry.isIntersecting) return;
+            img.addEventListener('load', () => {
+                resolve(img);
+            });
 
-            entry.target.classList.remove('element--hidden');
+            img.addEventListener('error', () => {
+                reject(new Error('Image not found!'));
+            });
+        });
+    };
 
-            observer.unobserve(entry.target);
+    const observePotentialBoxes = function ({ potential }) {
+        const revealPotentialBox = async function (entries, observer) {
+            try {
+                const [entry] = entries;
+
+                if (!entry.isIntersecting) return;
+
+                entry.target
+                    .querySelectorAll('.potential-box')
+                    .forEach(async box => {
+                        console.log(box);
+                        box.classList.remove('element--hidden');
+
+                        const image = await changeImage(
+                            box.querySelector('img')
+                        );
+
+                        image.classList.remove('lazy-img');
+                    });
+
+                observer.unobserve(entry.target);
+            } catch (err) {
+                console.error(err);
+            }
         };
 
         const potentialBoxObserver = new IntersectionObserver(
@@ -210,10 +239,11 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         );
 
-        potentialBoxes.forEach(box => {
-            potentialBoxObserver.observe(box);
-            box.classList.add('element--hidden');
-        });
+        potential
+            .querySelectorAll('.potential-box')
+            .forEach(box => box.classList.add('element--hidden'));
+
+        potentialBoxObserver.observe(potential);
     };
 
     // DAILY-PAYOUTS
@@ -224,6 +254,7 @@ window.addEventListener('DOMContentLoaded', () => {
         dailyPayoutsChildren = dailyPayoutsChildren.filter(
             el => !el.matches('.daily-payouts__big-text')
         );
+
         dailyPayoutsChildren.forEach(element => {
             addTransition(element);
         });
@@ -277,6 +308,7 @@ window.addEventListener('DOMContentLoaded', () => {
         );
 
         let count = 0;
+
         Array.from(paymentsChildren.at(0).children).forEach((element, i) => {
             element.style.opacity = 0;
             element.style.transform = `translateY(${i * 10}px)`;
@@ -390,7 +422,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     observePotentialBoxes({
-        potentialBoxes: document.querySelectorAll('.potential-box'),
+        potential: document.querySelector('.potential'),
     });
 
     observeDailyPayouts({

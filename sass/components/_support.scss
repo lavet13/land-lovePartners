@@ -1,26 +1,42 @@
 .support {
     display: grid;
-    gap: 7rem;
-    justify-items: center;
+    row-gap: 3rem;
     min-height: 45rem;
 
     @include respond(bp-large) {
-        justify-content: center;
-        grid-template-columns: 60vw 1fr;
-        column-gap: 3rem;
+        grid-template-columns: 4fr 3fr;
     }
 
     &-box {
         display: grid;
         grid-row-gap: 3rem;
+        grid-auto-rows: min-content;
         justify-items: center;
+
+        @include respond(bp-large) {
+            justify-items: start;
+            justify-content: center;
+        }
 
         &--1 {
             @include respond(bp-large) {
-                justify-items: start;
+                justify-content: center;
 
                 & > *:not(:last-child) {
                     padding-left: 1rem;
+                }
+            }
+        }
+
+        &--2 {
+            @include respond(bp-large) {
+                justify-self: stretch;
+                margin-right: 5rem;
+            }
+
+            @include respond(bp-large) {
+                img {
+                    width: 100%;
                 }
             }
         }
@@ -39,7 +55,6 @@
 
     &__img {
         display: block;
-        max-width: 150%;
         object-fit: contain;
         filter: saturate(1.2);
 

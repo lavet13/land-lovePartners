@@ -191,6 +191,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // POTENTIAL BOXES
     const renderError = function () {};
+
     const changeImage = function (img) {
         return new Promise((resolve, reject) => {
             img.src = img.dataset.src;
@@ -259,18 +260,32 @@ window.addEventListener('DOMContentLoaded', () => {
             addTransition(element);
         });
 
-        const revealDailyPayouts = function (entries, observer) {
-            const [entry] = entries;
+        const revealDailyPayouts = async function (entries, observer) {
+            try {
+                const [entry] = entries;
 
-            if (!entry.isIntersecting) return;
+                if (!entry.isIntersecting) return;
 
-            entry.target.classList.remove('element--hidden');
+                entry.target.classList.remove('element--hidden');
 
-            if (entry.target.matches('.daily-payouts__big-text')) {
-                revealLetters(entry.target);
+                if (entry.target.querySelector('img')) {
+                    const image = await changeImage(
+                        entry.target.querySelector('img')
+                    );
+
+                    image.classList.remove('lazy-img');
+                    image.style.maxWidth = '100%';
+                    image.style.width = 'auto';
+                }
+
+                if (entry.target.matches('.daily-payouts__big-text')) {
+                    revealLetters(entry.target);
+                }
+
+                observer.unobserve(entry.target);
+            } catch (err) {
+                console.error(err);
             }
-
-            observer.unobserve(entry.target);
         };
 
         const observeDailyPayouts = new IntersectionObserver(
@@ -358,17 +373,28 @@ window.addEventListener('DOMContentLoaded', () => {
 
         supportBoxesElements.forEach(el => addTransition(el));
 
-        const revealSupportElements = function (entries, observer) {
-            const [entry] = entries;
+        const revealSupportElements = async function (entries, observer) {
+            try {
+                const [entry] = entries;
 
-            if (!entry.isIntersecting) return;
+                if (!entry.isIntersecting) return;
 
-            entry.target.classList.remove('element--hidden');
-            if (entry.target.matches('.support--header')) {
-                revealLetters(entry.target);
+                entry.target.classList.remove('element--hidden');
+
+                if (entry.target.matches('img')) {
+                    const image = await changeImage(entry.target);
+
+                    image.classList.remove('lazy-img');
+                }
+
+                if (entry.target.matches('.support--header')) {
+                    revealLetters(entry.target);
+                }
+
+                observer.unobserve(entry.target);
+            } catch (err) {
+                console.error(err);
             }
-
-            observer.unobserve(entry.target);
         };
 
         const observeSupport = new IntersectionObserver(revealSupportElements, {

@@ -815,7 +815,7 @@ body:before {
   position: absolute;
   top: 0;
   display: block;
-  max-width: 100%;
+  width: 100%;
   object-fit: contain;
 }
 @media only screen and (min-width: 56.25em) {
@@ -1048,28 +1048,43 @@ body:before {
 
 .support {
   display: grid;
-  gap: 7rem;
-  justify-items: center;
+  row-gap: 3rem;
   min-height: 45rem;
 }
 @media only screen and (min-width: 56.25em) {
   .support {
-    justify-content: center;
-    grid-template-columns: 60vw 1fr;
-    column-gap: 3rem;
+    grid-template-columns: 4fr 3fr;
   }
 }
 .support-box {
   display: grid;
   grid-row-gap: 3rem;
+  grid-auto-rows: min-content;
   justify-items: center;
 }
 @media only screen and (min-width: 56.25em) {
-  .support-box--1 {
+  .support-box {
     justify-items: start;
+    justify-content: center;
+  }
+}
+@media only screen and (min-width: 56.25em) {
+  .support-box--1 {
+    justify-content: center;
   }
   .support-box--1 > *:not(:last-child) {
     padding-left: 1rem;
+  }
+}
+@media only screen and (min-width: 56.25em) {
+  .support-box--2 {
+    justify-self: stretch;
+    margin-right: 5rem;
+  }
+}
+@media only screen and (min-width: 56.25em) {
+  .support-box--2 img {
+    width: 100%;
   }
 }
 .support__figure-box {
@@ -1085,7 +1100,6 @@ body:before {
 }
 .support__img {
   display: block;
-  max-width: 150%;
   object-fit: contain;
   filter: saturate(1.2);
 }
@@ -1458,7 +1472,7 @@ body:before {
 }
 
 .lazy-img {
-  filter: blur(4px);
+  filter: blur(8px);
 }
 
 /*# sourceMappingURL=style.css.map */
